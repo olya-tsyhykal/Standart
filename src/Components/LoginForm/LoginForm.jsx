@@ -52,8 +52,11 @@ const LoginForm = ({ onSubmit }) => {
           {...fields.password}
         />
       </div>
-      <button type="submit" className={s.login}>
-        Login
+      <button type="submit" className={s.button}>
+        <span className={s.actualText}>&nbsp;login&nbsp;</span>
+        <span className={s.hoverText} aria-hidden="true">
+          &nbsp;login&nbsp;
+        </span>
       </button>
     </form>
   );

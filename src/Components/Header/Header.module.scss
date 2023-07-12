@@ -41,9 +41,9 @@
   font-weight: 400;
   color: #fff;
 }
-.nav {
-  // float: right;
-}
+// .nav {
+//   // float: right;
+// }
 .nav_item {
   display: inline;
   margin-right: 25px;
@@ -84,7 +84,7 @@
 .modal__close {
   position: absolute;
   top: 10px;
-  left: 570px;
+  left: 490px;
   transition: transform 500ms ease;
   &:hover,
   &:focus {

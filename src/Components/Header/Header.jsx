@@ -6,6 +6,7 @@ import { FaShoppingCart, FaWindowClose } from "react-icons/fa";
 import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
 import Button from "react-bootstrap/Button";
+import { ReactComponent as ReactLogo } from "../../Shared/Images/Logo svg 1.svg";
 
 import TextField from "../TextField/TextField";
 import { fields } from "../TextField/fields";
@@ -72,24 +73,29 @@ const Header = ({ searchProducts, deleteOrder }) => {
   return (
     <header>
       <ToastContainer />
-      <span className={s.logo}>Standart +</span>
-
-      <ul className={s.nav}>
-        <li className={s.nav_item}>Про нас</li>
-        <li className={s.nav_item}>Контакти</li>
-        <li className={s.nav_item}>
-          <NavLink to="/login">Кабінет</NavLink>
-          <Outlet />
-        </li>
-      </ul>
-      <FaShoppingCart
-        className={
-          cartOpen
-            ? `${s.shoppingCartButton} ${s.active}`
-            : s.shoppingCartButton
-        }
-        onClick={toggleModal}
-      />
+      <div className={s.header}>
+        <div className={s.logo}>
+          <ReactLogo />
+        </div>
+        <div className={s.navigation}>
+          <ul className={s.nav}>
+            <li className={s.nav_item}>Про нас</li>
+            <li className={s.nav_item}>Контакти</li>
+            <li className={s.nav_item}>
+              <NavLink to="/login">Кабінет</NavLink>
+              <Outlet />
+            </li>
+          </ul>
+          <FaShoppingCart
+            className={
+              cartOpen
+                ? `${s.shoppingCartButton} ${s.active}`
+                : s.shoppingCartButton
+            }
+            onClick={toggleModal}
+          />
+        </div>
+      </div>
       <div className={s.baner}></div>
       {cartOpen && (
         <Modal onClose={toggleModal}>

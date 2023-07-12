@@ -4,6 +4,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Products from "../../Components/Products/Products";
 import Categories from "../../Components/Categories/Categories";
+import Contacts from "../../Components/Contacts/Contacts";
 
 import s from "./HomePage.module.scss";
 import { getProducts } from "../../Shared/Servises/api";
@@ -57,6 +58,7 @@ const HomePage = () => {
   return (
     <div className="container">
       <h1 className={s.title}>"HOME PAGE"</h1>
+
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
       <Categories chooseCategory={chooseCategory} />
       <Products
@@ -64,6 +66,7 @@ const HomePage = () => {
         findIdProduct={findIdProduct}
         onClickLoadVore={onClickLoadVore}
       />
+      <Contacts />
       <Footer />
     </div>
   );

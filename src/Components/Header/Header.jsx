@@ -3,10 +3,11 @@ import { NavLink, Navigate } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import s from "./Header.module.scss";
 import { FaShoppingCart, FaWindowClose } from "react-icons/fa";
+import { BsPerson } from "react-icons/bs";
 import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
 import Button from "react-bootstrap/Button";
-import { ReactComponent as ReactLogo } from "../../Shared/Images/Logo svg 1.svg";
+import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 
 import TextField from "../TextField/TextField";
 import { fields } from "../TextField/fields";
@@ -19,7 +20,6 @@ const Header = ({ searchProducts, deleteOrder }) => {
   searchProducts.forEach((el) => (sum += Number.parseFloat(el.price)));
 
   const [cartOpen, setCartOpen] = useState(false);
-  // console.log(cartOpen);
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -72,73 +72,85 @@ const Header = ({ searchProducts, deleteOrder }) => {
   // console.log(searchProducts);
   return (
     <header>
-      <ToastContainer />
-      <div className={s.header}>
-        <div className={s.logo}>
-          <ReactLogo />
-        </div>
-        <div className={s.navigation}>
-          <ul className={s.nav}>
-            <li className={s.nav_item}>Про нас</li>
-            <li className={s.nav_item}>Контакти</li>
-            <li className={s.nav_item}>
-              <NavLink to="/login">Кабінет</NavLink>
+      <div className="container">
+        <ToastContainer />
+        <div className={s.header}>
+          <div className={s.logo}>
+            <Logo />
+          </div>
+          <div className={s.navigation}>
+            <ul className={s.nav}>
+              <li className={s.nav_item}>Про нас</li>
+              <li className={s.nav_item}>Каталог</li>
+              <li className={s.nav_item}>Контакти</li>
+              <li className={s.nav_item}></li>
+            </ul>
+            <div className={s.icons}>
+              <NavLink to="/login">
+                <BsPerson className={s.login} />
+              </NavLink>
               <Outlet />
-            </li>
-          </ul>
-          <FaShoppingCart
-            className={
-              cartOpen
-                ? `${s.shoppingCartButton} ${s.active}`
-                : s.shoppingCartButton
-            }
-            onClick={toggleModal}
-          />
+              <div className={s.shoppingCart}>
+                <FaShoppingCart
+                  className={
+                    cartOpen
+                      ? `${s.shoppingCartButton} ${s.active}`
+                      : s.shoppingCartButton
+                  }
+                  onClick={toggleModal}
+                />
+                <div className={s.sumOfProducts}>
+                  <span className={s.sumCart}>{searchProducts.length}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+
+        {cartOpen && (
+          <Modal onClose={toggleModal}>
+            <div className={s.modalContent}>
+              <h2 className={s.title}>КОРЗИНА</h2>
+
+              {searchProducts.length > 0 ? (
+                <div className={s.cartContainer}>
+                  <ul>
+                    {searchProducts?.map((item) => (
+                      <Order
+                        key={item.id}
+                        item={item}
+                        deleteOrder={deleteOrder}
+                      />
+                    ))}
+                  </ul>
+                  <p className={s.sum}>Загальна сума: {sum.toFixed(2)} грн.</p>
+                  <form id="tg" onSubmit={hendleSubmit}>
+                    <div className={s.cartForm}>
+                      <TextField
+                        value={name}
+                        onChange={hendleInputChange}
+                        {...fields.name}
+                      />
+                      <TextField
+                        value={number}
+                        onChange={hendleInputChange}
+                        {...fields.number}
+                      />
+                    </div>
+                    <Button type="submit" variant="success">
+                      Відправити
+                    </Button>
+                  </form>
+                </div>
+              ) : (
+                <h2 className={s.pusto}>Товари відсутні</h2>
+              )}
+              <FaWindowClose onClick={toggleModal} className={s.modal__close} />
+            </div>
+          </Modal>
+        )}
       </div>
       <div className={s.baner}></div>
-      {cartOpen && (
-        <Modal onClose={toggleModal}>
-          <div className={s.modalContent}>
-            <h2 className={s.title}>КОРЗИНА</h2>
-
-            {searchProducts.length > 0 ? (
-              <div className={s.cartContainer}>
-                <ul>
-                  {searchProducts?.map((item) => (
-                    <Order
-                      key={item.id}
-                      item={item}
-                      deleteOrder={deleteOrder}
-                    />
-                  ))}
-                </ul>
-                <p className={s.sum}>Загальна сума: {sum.toFixed(2)} грн.</p>
-                <form id="tg" onSubmit={hendleSubmit}>
-                  <div className={s.cartForm}>
-                    <TextField
-                      value={name}
-                      onChange={hendleInputChange}
-                      {...fields.name}
-                    />
-                    <TextField
-                      value={number}
-                      onChange={hendleInputChange}
-                      {...fields.number}
-                    />
-                  </div>
-                  <Button type="submit" variant="success">
-                    Відправити
-                  </Button>
-                </form>
-              </div>
-            ) : (
-              <h2 className={s.pusto}>Товари відсутні</h2>
-            )}
-            <FaWindowClose onClick={toggleModal} className={s.modal__close} />
-          </div>
-        </Modal>
-      )}
     </header>
   );
 };

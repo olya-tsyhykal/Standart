@@ -56,9 +56,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="container">
-      <h1 className={s.title}>"HOME PAGE"</h1>
-
+    <div>
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
       <Categories chooseCategory={chooseCategory} />
       <Products

@@ -86,10 +86,12 @@ const Header = ({ searchProducts, deleteOrder }) => {
               <li className={s.nav_item}></li>
             </ul>
             <div className={s.icons}>
-              <NavLink to="/login">
-                <BsPerson className={s.login} />
-              </NavLink>
-              <Outlet />
+              <div className={s.loginContainer}>
+                <NavLink to="/login">
+                  <BsPerson className={s.login} />
+                </NavLink>
+                <Outlet />
+              </div>
               <div className={s.shoppingCart}>
                 <FaShoppingCart
                   className={

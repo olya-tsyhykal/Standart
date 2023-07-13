@@ -79,10 +79,18 @@ header {
 .nav_item:not(:last-child) {
   margin-right: 20px;
 }
+.loginContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-right: 24px;
+}
 .login {
   width: 32px;
   height: 28px;
-  margin-right: 24px;
+
   cursor: pointer;
   color: #fff;
   transition: color, transform 500ms ease;
@@ -114,6 +122,9 @@ header {
 }
 .shoppingCart {
   position: relative;
+
+  width: 56px;
+  height: 56px;
 }
 .sumOfProducts {
   position: absolute;

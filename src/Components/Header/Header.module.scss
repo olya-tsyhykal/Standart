@@ -30,7 +30,7 @@ header {
   content: "Standart+";
   position: absolute;
   top: 150px;
-  left: 190px;
+  left: 290px;
   // width: 400px;
   // font-size: 40px;
   // font-weight: 600;
@@ -44,14 +44,17 @@ header {
   text-decoration-line: underline;
 }
 .baner::before {
-  content: "за найнижчіми цінами";
+  content: "Найкращі товари для вашого дому та риболовлі за найнижчими цінами";
   position: absolute;
-  top: 250px;
-  left: 50px;
-  width: 400px;
-  font-size: 20px;
-  font-weight: 400;
+  top: 270px;
+  left: 290px;
+  width: 462px;
+  font-family: Istok Web;
   color: #fff;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 // .nav {
 //   // float: right;

@@ -23,10 +23,10 @@ const Header = ({ searchProducts, deleteOrder }) => {
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  console.log(searchProducts);
+  // console.log(searchProducts);
 
   const productItem = searchProducts?.map((item) => item.name);
-  console.log(productItem);
+  // console.log(productItem);
   const hendleInputChange = (event) => {
     const { name, value } = event.currentTarget;
 

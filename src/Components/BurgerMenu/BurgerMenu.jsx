@@ -26,19 +26,20 @@ const BurgerMenu = ({ onClose }) => {
     }
   };
   const hendleBackDropClick = (event) => {
+    // console.log(event.currentTarget);
     if (event.currentTarget === event.target) {
       onClose();
     }
   };
 
   return createPortal(
-    <div className={s.navigatinBurgerMenu} onClick={onClose}>
+    <div className={s.navigatinBurgerMenu} onClick={hendleBackDropClick}>
       <div className={s.contentMenu}>
         <div className={s.loginContainer}>
           <Logo className={s.logoStandart} />
           <FaRegWindowClose
             className={s.closeBurgerMenuButton}
-            onClick={hendleBackDropClick}
+            onClick={onClose}
           />
           <div className={s.login}>
             <NavLink to="/login">

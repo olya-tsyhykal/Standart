@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { NavLink, Navigate } from "react-router-dom";
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 import { FaShoppingCart, FaWindowClose } from "react-icons/fa";
 import { BsPerson } from "react-icons/bs";
+import { RxHamburgerMenu } from "react-icons/rx";
 import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
 import Button from "react-bootstrap/Button";
@@ -14,12 +14,14 @@ import { fields } from "../TextField/fields";
 import { sendMassege } from "../../Shared/Servises/tgAPI";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
 
 const Header = ({ searchProducts, deleteOrder }) => {
   let sum = 0;
   searchProducts.forEach((el) => (sum += Number.parseFloat(el.price)));
 
   const [cartOpen, setCartOpen] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -64,7 +66,9 @@ const Header = ({ searchProducts, deleteOrder }) => {
     setName("");
     setNumber("");
   };
-
+  const toggleBurgerMenu = () => {
+    setIsShow(!isShow);
+  };
   const toggleModal = () => {
     setCartOpen(!cartOpen);
   };
@@ -75,15 +79,20 @@ const Header = ({ searchProducts, deleteOrder }) => {
       <div className="container">
         <ToastContainer />
         <div className={s.header}>
+          {isShow && <BurgerMenu onClose={toggleBurgerMenu} />}
           <div className={s.logo}>
-            <Logo />
+            <RxHamburgerMenu
+              className={s.gamburgerMenu}
+              onClick={() => setIsShow(!isShow)}
+            />
+            <Logo className={s.logoStandart} />
           </div>
+
           <div className={s.navigation}>
             <ul className={s.nav}>
               <li className={s.nav_item}>Про нас</li>
               <li className={s.nav_item}>Каталог</li>
               <li className={s.nav_item}>Контакти</li>
-              <li className={s.nav_item}></li>
             </ul>
             <div className={s.icons}>
               <div className={s.loginContainer}>
@@ -152,7 +161,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
           </Modal>
         )}
       </div>
-      <div className={s.baner}></div>
+      {/* <div className={s.baner}></div> */}
     </header>
   );
 };

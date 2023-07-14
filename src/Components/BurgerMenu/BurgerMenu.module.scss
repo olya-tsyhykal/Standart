@@ -1,0 +1,119 @@
+@import "../../Shared/styles/index";
+
+.navigatinBurgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.contentMenu {
+  position: absolute;
+  padding: 8px;
+  top: 8px;
+  left: 8px;
+  width: 300px;
+  height: 522px;
+  background-color: $bg-color-ground;
+}
+.loginContainer {
+  position: relative;
+  padding: 16px 16px 8px 16px;
+
+  background-color: $color-blue;
+}
+.logoStandart {
+  width: 84px;
+  height: 48px;
+}
+.closeBurgerMenuButton {
+  position: absolute;
+  top: 8px;
+  left: 268px;
+
+  color: #fff;
+  transition: color, transform 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+    transform: scale(1.5);
+  }
+}
+.login {
+  display: flex;
+  align-items: center;
+
+  margin-top: 24px;
+}
+.loginBurger {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+
+  color: #fff;
+  transition: color, transform 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+    transform: scale(1.5);
+  }
+}
+.loginText {
+  color: #fff;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  margin-left: 8px;
+}
+.navItemBurger {
+  border-bottom: 1px solid $color-brand_yellow;
+  transition: color 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+  }
+}
+.containerMenu {
+  display: flex;
+  width: 300px;
+  padding: 12px 12px 12px 8px;
+  align-items: center;
+  gap: 8px;
+}
+.AboutUs {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+.navBurgerMenuText {
+  margin-left: 12px;
+  width: 219px;
+  color: $color-dark_main;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  transition: color 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+  }
+}
+.catalog,
+.arrow,
+.phone {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: $color-dark_main;
+
+  transition: color 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+  }
+}

@@ -58,14 +58,14 @@ const HomePage = () => {
   return (
     <div>
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
-      <Categories chooseCategory={chooseCategory} />
+      {/* <Categories chooseCategory={chooseCategory} />
       <Products
         data={filteredByCategories}
         findIdProduct={findIdProduct}
         onClickLoadVore={onClickLoadVore}
       />
       <Contacts />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 };

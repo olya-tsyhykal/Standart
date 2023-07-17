@@ -1,4 +1,4 @@
-import advantages from "../../Shared/Images/advantages.jpg";
+import advantages from "../../Shared/Images/advent.png";
 import s from "./AboutUs.module.scss";
 
 const AboutUs = () => {

@@ -9,6 +9,7 @@ import Contacts from "../../Components/Contacts/Contacts";
 import s from "./HomePage.module.scss";
 import { getProducts } from "../../Shared/Servises/api";
 import Hero from "../../Components/Hero/Hero";
+import AboutUs from "../../Components/AboutUs/AboutUs";
 
 const HomePage = () => {
   const [searchProducts, setSearchProducts] = useState([]);
@@ -60,14 +61,15 @@ const HomePage = () => {
     <div>
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
       <Hero />
-      {/* <Categories chooseCategory={chooseCategory} />
-      <Products
+      <AboutUs />
+      {/* <Categories chooseCategory={chooseCategory} /> */}
+      {/* <Products
         data={filteredByCategories}
         findIdProduct={findIdProduct}
         onClickLoadVore={onClickLoadVore}
-      />
-      <Contacts />
-      <Footer /> */}
+      /> */}
+      {/* <Contacts /> */}
+      <Footer />
     </div>
   );
 };

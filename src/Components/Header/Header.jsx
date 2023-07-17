@@ -15,6 +15,7 @@ import { sendMassege } from "../../Shared/Servises/tgAPI";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = ({ searchProducts, deleteOrder }) => {
   let sum = 0;
@@ -88,7 +89,18 @@ const Header = ({ searchProducts, deleteOrder }) => {
         </div>
 
         <ul className={s.nav}>
-          <li className={s.nav_item}>Про нас</li>
+          <li className={s.nav_item}>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Про нас
+            </Link>
+          </li>
           <li className={s.nav_item}>Каталог</li>
           <li className={s.nav_item}>Контакти</li>
         </ul>

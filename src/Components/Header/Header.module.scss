@@ -141,7 +141,7 @@ header {
 .shoppingCartButton {
   width: 18px;
   height: 18px;
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $tablet) {
     width: 24px;
     height: 24px;
   }

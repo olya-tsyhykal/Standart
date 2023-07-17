@@ -2,8 +2,11 @@
 @import "./Shared/styles/index";
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Kreon "Courier New",
     monospace;
+}
+body {
+  background: #f6f6f6;
 }
 h1,
 h2,

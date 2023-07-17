@@ -7,6 +7,7 @@ import { MdArrowForwardIos } from "react-icons/md";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 import s from "./BurgerMenu.module.scss";
 
@@ -52,11 +53,20 @@ const BurgerMenu = ({ onClose }) => {
 
         <ul className={s.navBurger}>
           <li className={s.navItemBurger}>
-            <div className={s.containerMenu}>
-              <FcAbout className={s.AboutUs} />
-              <span className={s.navBurgerMenuText}>Про нас</span>
-              <MdArrowForwardIos className={s.arrow} />
-            </div>
+            <Link
+              activeClass="active"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <div className={s.containerMenu}>
+                <FcAbout className={s.AboutUs} />
+                <span className={s.navBurgerMenuText}>Про нас</span>
+                <MdArrowForwardIos className={s.arrow} />
+              </div>
+            </Link>
           </li>
           <li className={s.navItemBurger}>
             <div className={s.containerMenu}>

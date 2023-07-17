@@ -76,92 +76,88 @@ const Header = ({ searchProducts, deleteOrder }) => {
   // console.log(searchProducts);
   return (
     <header>
-      <div className="container">
-        <ToastContainer />
-        <div className={s.header}>
-          {isShow && <BurgerMenu onClose={toggleBurgerMenu} />}
-          <div className={s.logo}>
-            <RxHamburgerMenu
-              className={s.gamburgerMenu}
-              onClick={() => setIsShow(!isShow)}
-            />
-            <Logo className={s.logoStandart} />
-          </div>
+      <ToastContainer />
+      <div className={s.header}>
+        {isShow && <BurgerMenu onClose={toggleBurgerMenu} />}
+        <div className={s.logo}>
+          <RxHamburgerMenu
+            className={s.gamburgerMenu}
+            onClick={() => setIsShow(!isShow)}
+          />
+          <Logo className={s.logoStandart} />
+        </div>
 
-          <div className={s.navigation}>
-            <ul className={s.nav}>
-              <li className={s.nav_item}>Про нас</li>
-              <li className={s.nav_item}>Каталог</li>
-              <li className={s.nav_item}>Контакти</li>
-            </ul>
-            <div className={s.icons}>
-              <div className={s.loginContainer}>
-                <NavLink to="/login">
-                  <BsPerson className={s.login} />
-                </NavLink>
-                <Outlet />
-              </div>
-              <div className={s.shoppingCart}>
-                <FaShoppingCart
-                  className={
-                    cartOpen
-                      ? `${s.shoppingCartButton} ${s.active}`
-                      : s.shoppingCartButton
-                  }
-                  onClick={toggleModal}
-                />
-                <div className={s.sumOfProducts}>
-                  <span className={s.sumCart}>{searchProducts.length}</span>
-                </div>
-              </div>
+        <ul className={s.nav}>
+          <li className={s.nav_item}>Про нас</li>
+          <li className={s.nav_item}>Каталог</li>
+          <li className={s.nav_item}>Контакти</li>
+        </ul>
+
+        <div className={s.icons}>
+          <div className={s.loginContainer}>
+            <NavLink to="/login">
+              <BsPerson className={s.login} />
+            </NavLink>
+            <Outlet />
+          </div>
+          <div className={s.shoppingCart}>
+            <FaShoppingCart
+              className={
+                cartOpen
+                  ? `${s.shoppingCartButton} ${s.active}`
+                  : s.shoppingCartButton
+              }
+              onClick={toggleModal}
+            />
+            <div className={s.sumOfProducts}>
+              <span className={s.sumCart}>{searchProducts.length}</span>
             </div>
           </div>
         </div>
-
-        {cartOpen && (
-          <Modal onClose={toggleModal}>
-            <div className={s.modalContent}>
-              <h2 className={s.title}>КОРЗИНА</h2>
-
-              {searchProducts.length > 0 ? (
-                <div className={s.cartContainer}>
-                  <ul>
-                    {searchProducts?.map((item) => (
-                      <Order
-                        key={item.id}
-                        item={item}
-                        deleteOrder={deleteOrder}
-                      />
-                    ))}
-                  </ul>
-                  <p className={s.sum}>Загальна сума: {sum.toFixed(2)} грн.</p>
-                  <form id="tg" onSubmit={hendleSubmit}>
-                    <div className={s.cartForm}>
-                      <TextField
-                        value={name}
-                        onChange={hendleInputChange}
-                        {...fields.name}
-                      />
-                      <TextField
-                        value={number}
-                        onChange={hendleInputChange}
-                        {...fields.number}
-                      />
-                    </div>
-                    <Button type="submit" variant="success">
-                      Відправити
-                    </Button>
-                  </form>
-                </div>
-              ) : (
-                <h2 className={s.pusto}>Товари відсутні</h2>
-              )}
-              <FaWindowClose onClick={toggleModal} className={s.modal__close} />
-            </div>
-          </Modal>
-        )}
       </div>
-      {/* <div className={s.baner}></div> */}
+
+      {cartOpen && (
+        <Modal onClose={toggleModal}>
+          <div className={s.modalContent}>
+            <h2 className={s.title}>КОРЗИНА</h2>
+
+            {searchProducts.length > 0 ? (
+              <div className={s.cartContainer}>
+                <ul>
+                  {searchProducts?.map((item) => (
+                    <Order
+                      key={item.id}
+                      item={item}
+                      deleteOrder={deleteOrder}
+                    />
+                  ))}
+                </ul>
+                <p className={s.sum}>Загальна сума: {sum.toFixed(2)} грн.</p>
+                <form id="tg" onSubmit={hendleSubmit}>
+                  <div className={s.cartForm}>
+                    <TextField
+                      value={name}
+                      onChange={hendleInputChange}
+                      {...fields.name}
+                    />
+                    <TextField
+                      value={number}
+                      onChange={hendleInputChange}
+                      {...fields.number}
+                    />
+                  </div>
+                  <Button type="submit" variant="success">
+                    Відправити
+                  </Button>
+                </form>
+              </div>
+            ) : (
+              <h2 className={s.pusto}>Товари відсутні</h2>
+            )}
+            <FaWindowClose onClick={toggleModal} className={s.modal__close} />
+          </div>
+        </Modal>
+      )}
     </header>
   );
 };

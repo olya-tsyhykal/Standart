@@ -1,0 +1,115 @@
+@import "../../Shared//styles/index";
+
+.baner {
+  position: relative;
+  // margin: 50px 0;
+  background: url("../../Shared/Images/pic.jpg") no-repeat;
+  width: 100%;
+  height: 240px;
+  @media screen and (min-width: $tablet) {
+    height: 497px;
+  }
+  @media screen and (min-width: $tablet) {
+    height: 800px;
+  }
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply; //позволяет наложить цвет на картинку
+  background-color: #bcbcbc;
+}
+.banerContetntTop {
+  display: block;
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+.banerContent {
+  display: none;
+
+  @media screen and (min-width: $tablet) {
+    display: block;
+    padding-top: 80px;
+    padding-left: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 120px;
+    padding-left: 150px;
+  }
+}
+.title {
+  margin-top: 41px;
+  margin-bottom: 9px;
+  text-align: center;
+
+  text-transform: uppercase;
+  color: $color-brand_yellow;
+  font-family: Istok Web;
+  font-size: 32px;
+  @media screen and (min-width: $tablet) {
+    margin-top: 0;
+    font-size: 64px;
+    argin-bottom: 16px;
+    text-align: left;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 96px;
+  }
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.slogan {
+  color: $bg-color-blue-light;
+  font-family: Istok Web;
+  font-size: 19px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-bottom: 15px;
+
+  text-align: center;
+
+  margin-bottom: 32px;
+  @media screen and (min-width: $tablet) {
+    font-size: 30px;
+    margin-bottom: 16px;
+    color: $color-brand_yellow;
+    text-align: left;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 48px;
+  }
+}
+
+.description {
+  display: block;
+  margin: 0 auto;
+  width: 296px;
+
+  text-align: center;
+
+  color: #0f0e0e;
+  font-family: Istok Web;
+  font-size: 16px;
+  margin-bottom: 15px;
+  @media screen and (min-width: $tablet) {
+    font-size: 24px;
+    width: 462px;
+    height: 70px;
+    color: #fff;
+    font-weight: 400;
+    margin-bottom: 0;
+    text-align: left;
+    margin: 0;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 36px;
+    width: 637px;
+    height: 105px;
+  }
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

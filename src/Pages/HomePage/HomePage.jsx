@@ -8,6 +8,7 @@ import Contacts from "../../Components/Contacts/Contacts";
 
 import s from "./HomePage.module.scss";
 import { getProducts } from "../../Shared/Servises/api";
+import Hero from "../../Components/Hero/Hero";
 
 const HomePage = () => {
   const [searchProducts, setSearchProducts] = useState([]);
@@ -58,6 +59,7 @@ const HomePage = () => {
   return (
     <div>
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
+      <Hero />
       {/* <Categories chooseCategory={chooseCategory} />
       <Products
         data={filteredByCategories}

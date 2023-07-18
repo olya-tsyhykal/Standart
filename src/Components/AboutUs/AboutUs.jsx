@@ -34,6 +34,20 @@ const AboutUs = () => {
           </div>
           <img src={advantages} alt="advantages" className={s.fotoAdvantages} />
         </div>
+        <div className={s.assest}>
+          <p className={s.assestDesc}>
+            Наші постійні клієнти обирають саме нас за наші сильні сторони та
+            переваги:
+          </p>
+          <ul className={s.assestList}>
+            <li className={s.assestListItem}>Надійність</li>
+            <li className={s.assestListItem}>Зручність</li>
+            <li className={s.assestListItem}>Якісні товари</li>
+            <li className={s.assestListItem}>Гарний сервіс</li>
+            <li className={s.assestListItem}>Вигідні ціни</li>
+            <li className={s.assestListItem}>Багатий досвід</li>
+          </ul>
+        </div>
       </div>
     </section>
   );

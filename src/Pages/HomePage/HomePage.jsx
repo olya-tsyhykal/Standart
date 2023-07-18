@@ -10,6 +10,7 @@ import s from "./HomePage.module.scss";
 import { getProducts } from "../../Shared/Servises/api";
 import Hero from "../../Components/Hero/Hero";
 import AboutUs from "../../Components/AboutUs/AboutUs";
+import Reviews from "../../Components/Reviews/Reviews";
 
 const HomePage = () => {
   const [searchProducts, setSearchProducts] = useState([]);
@@ -69,6 +70,7 @@ const HomePage = () => {
         onClickLoadVore={onClickLoadVore}
       /> */}
       <Contacts />
+      <Reviews />
       <Footer />
     </div>
   );

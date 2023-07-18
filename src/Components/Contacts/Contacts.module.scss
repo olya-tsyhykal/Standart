@@ -1,4 +1,119 @@
+@import "../../Shared//styles/index";
+
+.title {
+  padding: 45px 204px 37px 12px;
+  width: 104px;
+
+  color: $color-blue;
+  font-family: Kreon;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: underline;
+  @media screen and (min-width: $tablet) {
+    padding: 88px 583px 87px 40px;
+    width: 145px;
+    font-size: 36px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 88px 1068px 137px 67px;
+  }
+}
+.contacts {
+  @media screen and (min-width: $tablet) {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 50px;
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    background-color: #fff;
+  }
+}
+.contactsContainer {
+  background-color: #fff;
+  padding: 12px 12px 12px 12px;
+  @media screen and (min-width: $tablet) {
+    padding: 40px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: 100px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 479px;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+  }
+}
+.adressTitle,
+.telefonTitle,
+.emailTitle,
+.timeTitle {
+  color: $color-dark_main;
+  font-family: Kreon;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 24px;
+  }
+}
+.adressTitle,
+.telefonTitle,
+.emailTitle,
+.timeTitle {
+  margin-bottom: 10px;
+}
+.streetName,
+.telefonSecond,
+.emailAdress {
+  margin-bottom: 26px;
+}
+.adressName,
+.streetName,
+.telefonFirst,
+.telefonSecond,
+.emailAdress,
+.dayOfWork {
+  color: $color-dark_main;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+  }
+}
+.telefonFirst span,
+.telefonSecond span {
+  font-size: 12px;
+  @media screen and (min-width: $tablet) {
+    font-size: 16px;
+  }
+}
+
 .googleMap {
-  width: 600px;
+  width: 100%;
   border: 0;
+
+  @media screen and (min-width: $desktop) {
+    width: 578px;
+    height: 434px;
+    margin-left: -100px;
+  }
 }

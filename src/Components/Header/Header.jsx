@@ -102,7 +102,18 @@ const Header = ({ searchProducts, deleteOrder }) => {
             </Link>
           </li>
           <li className={s.nav_item}>Каталог</li>
-          <li className={s.nav_item}>Контакти</li>
+          <li className={s.nav_item}>
+            <Link
+              activeClass="active"
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Контакти
+            </Link>
+          </li>
         </ul>
 
         <div className={s.icons}>

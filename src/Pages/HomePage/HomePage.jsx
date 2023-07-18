@@ -68,7 +68,7 @@ const HomePage = () => {
         findIdProduct={findIdProduct}
         onClickLoadVore={onClickLoadVore}
       /> */}
-      {/* <Contacts /> */}
+      <Contacts />
       <Footer />
     </div>
   );

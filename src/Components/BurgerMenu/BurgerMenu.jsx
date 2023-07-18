@@ -76,11 +76,20 @@ const BurgerMenu = ({ onClose }) => {
             </div>
           </li>
           <li className={s.navItemBurger}>
-            <div className={s.containerMenu}>
-              <BiSolidPhone className={s.phone} />
-              <span className={s.navBurgerMenuText}>Контакти</span>
-              <MdArrowForwardIos className={s.arrow} />
-            </div>
+            <Link
+              activeClass="active"
+              to="contacts"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <div className={s.containerMenu}>
+                <BiSolidPhone className={s.phone} />
+                <span className={s.navBurgerMenuText}>Контакти</span>
+                <MdArrowForwardIos className={s.arrow} />
+              </div>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,12 +1,58 @@
-.slider {
+@import "../../Shared/styles/index";
+
+.container {
   padding: 13px;
 }
-
 .cart {
   padding: 12px;
-  width: 274px;
+  //   width: 274px;
   height: 320px;
- border: 1px solid red;
- margin: 10px;
+  //   border: 1px solid red;
+  margin: 10px;
   background-color: #fff;
+}
+.nameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  margin-bottom: 12px;
+}
+.name {
+  margin-left: 12px;
+
+  color: $color-dark_main;
+  font-family: Kreon;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  color: $color-blue;
+}
+.date {
+  margin-bottom: 12px;
+
+  color: #b9b9b9;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.star {
+  margin-bottom: 12px;
+
+  color: $color-brand_yellow;
+}
+.review {
+  color: $color-dark_main;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

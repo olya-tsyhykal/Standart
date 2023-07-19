@@ -10,6 +10,13 @@
   //   border: 1px solid red;
   margin: 10px;
   background-color: #fff;
+  @media screen and (min-width: $tablet) {
+    width: 280px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 480px;
+    height: 250px;
+  }
 }
 .nameContainer {
   display: flex;

@@ -12,12 +12,12 @@
   line-height: normal;
   text-decoration-line: underline;
   @media screen and (min-width: $tablet) {
-    padding: 88px 0px 87px 40px;
+    padding: 88px 0px 40px 40px;
     width: 325px;
     font-size: 36px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 88px 0px 137px 67px;
+    padding: 88px 0px 89px 67px;
     width: 360px;
   }
 }

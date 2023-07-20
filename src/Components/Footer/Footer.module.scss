@@ -1,4 +1,73 @@
+@import "../../Shared/styles/index";
+
 .footer {
-  text-align: center;
-  margin-top: 10px;
+  background-color: $bg-color-blue-light;
+}
+.footerMainContainer {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.footerNav {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+  }
+}
+.footerNavogationDesktop {
+  display: none;
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+  }
+}
+.footerContainer {
+  padding: 25px 12px;
+  @media screen and (min-width: $desktop) {
+    padding: 40px 40px 24px 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 50px 50px 20px 50px;
+  }
+}
+.reverseContainer {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+.navigation {
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+
+.rights {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+}
+.logoStandart {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    display: block;
+  }
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
+}
+.arrowTop {
+  @media screen and (min-width: $tablet) {
+    display: none;
+  }
+}
+.buttomContainer {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
 }

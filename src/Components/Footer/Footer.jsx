@@ -16,7 +16,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className={s.footer} onClick={scrollToTop}>
+    <footer className={s.footer}>
       <div className={s.footerContainer}>
         <div className={s.footerMainContainer}>
           <div className={s.reverseContainer}>
@@ -25,7 +25,7 @@ const Footer = () => {
               <p className={s.telefonNumber}>+38(050)3004406</p>
               <p className={s.telefonTimeCall}>(дзвінки з 09:00 до 16:00) </p>
             </div>
-            <div className={s.sicialNetwork}>
+            <div className={s.socialNetwork}>
               <h4 className={s.socialNetworkTitle}>
                 Завітайте в наші соціальні мережі:
               </h4>
@@ -68,7 +68,7 @@ const Footer = () => {
           </div>
           <div className={s.footerNavogationDesktop}>
             <ul className={s.footerNav}>
-              <li className={s.nav_item}>
+              <li className={s.footerNav_item}>
                 <Link
                   activeClass="active"
                   to="about"
@@ -80,8 +80,8 @@ const Footer = () => {
                   Про нас
                 </Link>
               </li>
-              <li className={s.nav_item}>Каталог</li>
-              <li className={s.nav_item}>
+              <li className={s.footerNav_item}>Каталог</li>
+              <li className={s.footerNav_item}>
                 <Link
                   activeClass="active"
                   to="contacts"
@@ -106,7 +106,7 @@ const Footer = () => {
           <Logo className={s.logoStandart} />
         </div>
         <div className={s.arrowTop}>
-          <BsArrowUpSquare className={s.arrowToTop} />
+          <BsArrowUpSquare className={s.arrowToTop} onClick={scrollToTop} />
         </div>
       </div>
     </footer>

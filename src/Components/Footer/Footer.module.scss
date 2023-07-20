@@ -25,7 +25,7 @@
 }
 .footerContainer {
   padding: 25px 12px;
-  @media screen and (min-width: $desktop) {
+  @media screen and (min-width: $tablet) {
     padding: 40px 40px 24px 40px;
   }
   @media screen and (min-width: $desktop) {
@@ -33,16 +33,24 @@
   }
 }
 .reverseContainer {
+  margin-bottom: 64px;
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: column-reverse;
+    margin-bottom: 0px;
   }
 }
 .navigation {
+  color: #fff;
   @media screen and (min-width: $desktop) {
     display: none;
   }
 }
+// .nav {
+//   @media screen and (min-width: $desktop) {
+//     display: flex;
+//   }
+// }
 
 .rights {
   display: none;
@@ -69,5 +77,151 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+  }
+}
+.telefon {
+  margin-bottom: 28px;
+}
+.telefonTitle {
+  margin-bottom: 12px;
+}
+.socialNetwork {
+  margin-bottom: 24px;
+}
+.socialNetworkTitle {
+  padding: 12px 0px;
+}
+.socialNetworkIcon {
+  width: 30px;
+  height: 30px;
+}
+.socialNetworkIcon:not(:last-child) {
+  margin-right: 12px;
+}
+.telefonTitle,
+.socialNetworkTitle {
+  color: $color-brand_yellow;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+.telefonNumber {
+  color: #fff;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration-line: underline;
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+.telefonTimeCall {
+  color: #fff;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.socialNetworkIcon {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  transition: color 500ms ease;
+  &:hover,
+  &:focus {
+    color: $color-brand_yellow;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 40px;
+    height: 40px;
+  }
+}
+.nav_item {
+  color: #fff;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  transition: color 500ms ease;
+  &:hover,
+  &:focus {
+    color: $color-brand_yellow;
+  }
+  @media screen and (min-width: $tablet) {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+.nav {
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+.footerNav {
+  @media screen and (min-width: $desktop) {
+    color: #fff;
+
+    font-family: Kreon;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+}
+.footerNav_item {
+  padding-left: 19px;
+  padding-right: 31px;
+  transition: color 500ms ease;
+  &:hover,
+  &:focus {
+    color: $color-brand_yellow;
+  }
+}
+
+.nav_item:not(:last-child) {
+  margin-bottom: 34px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 49px;
+    margin-right: 50px;
+  }
+}
+.arrowToTop {
+  display: block;
+  margin: 0 auto;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  transition: color 500ms ease;
+  &:hover,
+  &:focus {
+    color: $color-brand_yellow;
+  }
+}
+.rights {
+  color: #fff;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  letter-spacing: 0.56px;
+}
+.logoStandart {
+  width: 216px;
+  height: 120px;
+  @media screen and (min-width: $desktop) {
+    width: 280px;
+    height: 160px;
   }
 }

@@ -49,7 +49,7 @@ const HomePage = () => {
       item.category.toLowerCase().includes(category.toLowerCase())
     );
     setfilteredByCategories(filteredList);
-    if (category === "всі") {
+    if (category === "Всі товари") {
       setfilteredByCategories(tovar);
     }
   };

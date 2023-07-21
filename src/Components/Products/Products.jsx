@@ -29,12 +29,10 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
             onClick={findDetails}
           />
         </div>
-        <h2 className={s.name}>{name}</h2>
-        <h3 className={s.country}>{country}</h3>
-        <h3 className={s.country}>{category}</h3>
-        <b className={s.price}>Ціна: {price} грн.</b>
+        <p className={s.name}>{name}</p>
+        <b className={s.price}>{price} грн</b>
         <div className={s.add_to_card} onClick={findIdProduct} id={id}>
-          +
+          Додати
         </div>
       </li>
     )

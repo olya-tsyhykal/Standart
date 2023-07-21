@@ -1,3 +1,23 @@
+@import "../../Shared//styles/index";
+
+.title {
+  padding: 45px 0px 37px 12px;
+
+  color: $color-blue;
+  font-family: Kreon;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: underline;
+  @media screen and (min-width: $tablet) {
+    padding: 88px 0px 87px 40px;
+    font-size: 36px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding: 88px 0px 137px 67px;
+  }
+}
 .products {
   display: flex;
   flex-wrap: wrap;

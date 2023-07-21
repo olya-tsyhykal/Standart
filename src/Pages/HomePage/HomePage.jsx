@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Products from "../../Components/Products/Products";
-import Categories from "../../Components/Categories/Categories";
 import Contacts from "../../Components/Contacts/Contacts";
 
 import s from "./HomePage.module.scss";
@@ -63,12 +62,12 @@ const HomePage = () => {
       <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
       <Hero />
       <AboutUs />
-      {/* <Categories chooseCategory={chooseCategory} /> */}
-      {/* <Products
+      <Products
         data={filteredByCategories}
         findIdProduct={findIdProduct}
         onClickLoadVore={onClickLoadVore}
-      /> */}
+        chooseCategory={chooseCategory}
+      />
       <Contacts />
       <Reviews />
       <Footer />

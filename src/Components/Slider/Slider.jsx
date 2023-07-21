@@ -5,7 +5,7 @@ import s from "./Slider.module.scss";
 
 const Slider = () => {
   const pageWidth = document.documentElement.scrollWidth;
-  console.log(pageWidth);
+  // console.log(pageWidth);
   return (
     <div className={s.container}>
       <Carousel

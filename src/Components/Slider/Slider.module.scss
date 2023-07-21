@@ -8,6 +8,9 @@
   height: 320px;
   margin: 10px;
   background-color: #fff;
+  &:hover {
+    box-shadow: 2px 2px 10px -5px rgba(11, 110, 165, 1);
+  }
   @media screen and (min-width: $tablet) {
     width: 280px;
   }

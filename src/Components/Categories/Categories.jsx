@@ -4,19 +4,19 @@ const Categories = ({ chooseCategory }) => {
   const categories = [
     {
       key: "all",
-      name: "всі",
+      name: "Всі товари",
     },
     {
       key: "household goods",
-      name: "товари для дому",
+      name: "Товари для дому",
     },
     {
       key: "everything for cleaning",
-      name: "все для прибирання",
+      name: "Все для прибирання",
     },
     {
       key: "fishing goods",
-      name: "товари для рибалки",
+      name: "Товари для риболовлі",
     },
   ];
   return (

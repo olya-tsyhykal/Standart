@@ -2,8 +2,9 @@ import { nanoid } from "nanoid";
 import s from "./Products.module.scss";
 import Modal from "../../Components/Modal/Modal";
 import { useState } from "react";
+import Categories from "../Categories/Categories";
 
-const Products = ({ data, findIdProduct, onClickLoadVore }) => {
+const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
   const [isShow, setIsShow] = useState(false);
   const [searchInfo, setSearchInfo] = useState({});
   // console.log(searchInfo);
@@ -40,7 +41,9 @@ const Products = ({ data, findIdProduct, onClickLoadVore }) => {
   );
   const { id, gallery, name, country, description, price } = searchInfo;
   return (
-    <main>
+    <section id="products">
+      <h2 className={s.title}>Каталог товарів</h2>
+      <Categories chooseCategory={chooseCategory} />
       <ul className={s.products}>{productItem}</ul>
       <button type="button" className={s.loadMore} onClick={onClickLoadVore}>
         Load more
@@ -58,7 +61,7 @@ const Products = ({ data, findIdProduct, onClickLoadVore }) => {
           </div>
         </Modal>
       )}
-    </main>
+    </section>
   );
 };
 

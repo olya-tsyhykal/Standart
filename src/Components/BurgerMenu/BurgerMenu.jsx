@@ -69,11 +69,20 @@ const BurgerMenu = ({ onClose }) => {
             </Link>
           </li>
           <li className={s.navItemBurger}>
-            <div className={s.containerMenu}>
-              <BiCategory className={s.catalog} />
-              <span className={s.navBurgerMenuText}>Каталог товарів</span>
-              <MdArrowForwardIos className={s.arrow} />
-            </div>
+            <Link
+              activeClass="active"
+              to="products"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              <div className={s.containerMenu}>
+                <BiCategory className={s.catalog} />
+                <span className={s.navBurgerMenuText}>Каталог товарів</span>
+                <MdArrowForwardIos className={s.arrow} />
+              </div>
+            </Link>
           </li>
           <li className={s.navItemBurger}>
             <Link

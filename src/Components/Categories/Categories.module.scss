@@ -1,19 +1,65 @@
+@import "../../Shared/styles/index";
+
 .categories {
-  text-align: center;
+  background-color: $bg-color-blue-light;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  padding: 12px 20px;
+  margin-bottom: 32px;
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+
+    margin-bottom: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+  }
 }
 .categoriesItem {
-  display: inline-block;
-  background: #d0cece;
-  border-radius: 50px;
-  padding: 10px 20px;
-  margin-bottom: 25px;
-  margin-right: 15px;
+  display: flex;
+  width: 280px;
+  height: 36px;
+  padding: 9px 0px;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  @media screen and (min-width: $desktop) {
+    font-weight: 500;
+  }
+
   transition: all 500ms ease;
-  &:hover {
-    background-color: rgb(112, 241, 14);
-    border-color: grey;
-    transform: scale(1.1);
+  &:hover,
+  &:focus {
+    color: $color-brand_yellow;
+    border-color: $color-brand_yellow;
+    font-weight: 500;
+    transform: scale(1.05);
+  }
+}
+.categoriesItem:not(:last-child) {
+  margin-bottom: 16px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0;
+    margin-right: 16px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-right: 20px;
   }
 }

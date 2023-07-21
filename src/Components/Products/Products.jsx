@@ -7,17 +7,20 @@ import Categories from "../Categories/Categories";
 const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
   const [isShow, setIsShow] = useState(false);
   const [searchInfo, setSearchInfo] = useState({});
-  // console.log(searchInfo);
+  const [filter, setFilter] = useState("");
+
   const toggleModal = () => {
     setIsShow(!isShow);
-    // console.log(isShow);
   };
   const findDetails = (event) => {
     const findInfo = data.find((item) => item.id === event.currentTarget.id);
     setSearchInfo(findInfo);
   };
+  const filterList = data.filter((item) =>
+    item.name.toLowerCase().includes(filter.toLocaleLowerCase())
+  );
 
-  const productItem = data?.map(
+  const productItem = filterList?.map(
     ({ id, gallery, name, country, price, category }) => (
       <li className={s.productItem} key={nanoid()} id={id}>
         <div onClick={toggleModal}>
@@ -42,9 +45,19 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
     <section id="products">
       <h2 className={s.title}>Каталог товарів</h2>
       <Categories chooseCategory={chooseCategory} />
+      <input
+        type="search"
+        name="filter"
+        value={filter}
+        placeholder="назва товару..."
+        onChange={(event) => {
+          setFilter(event.target.value);
+        }}
+        className={s.filter}
+      />
       <ul className={s.products}>{productItem}</ul>
       <button type="button" className={s.loadMore} onClick={onClickLoadVore}>
-        Load more
+        Загрузити ще
       </button>
       {isShow && (
         <Modal onClose={toggleModal}>

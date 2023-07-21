@@ -22,17 +22,22 @@
   display: grid;
   max-width: calc(100vw - 12px);
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  grid-gap: 5px;
+  grid-gap: 12px;
   margin-left: auto;
   margin-right: auto;
-  @media screen and (min-width: $tablet) {
-    grid-gap: 12px;
+  @media screen and (min-width: $desktop) {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 .productItem {
   position: relative;
-  // width: 100%;
+
   padding: 8px 8px 14px 8px;
+  @media screen and (min-width: $desktop) {
+    padding: 16px 16px 20px 16px;
+  }
 
   background: #fff;
 }
@@ -62,13 +67,16 @@
   font-weight: 400;
   line-height: normal;
   text-decoration-line: underline;
+  @media screen and (min-width: $desktop) {
+    font-size: 20px;
+  }
 }
 .price {
-  color: #d71f15;
+  color: $color-blue;
   font-family: Kreon;
   font-size: 24px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 700;
   line-height: normal;
 }
 .add_to_card {
@@ -111,12 +119,56 @@
 .loadMore {
   display: block;
   margin: 0 auto;
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
+  padding: 14px 35px 14px 34px;
+
+  text-align: center;
+  color: $color-blue;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration-line: underline;
+  background-color: transparent;
+
+  transition: color 500ms ease;
+
   &:hover {
-    color: #fff;
-    background-color: green;
-    border: 2px solid black;
+    color: $color-brand_yellow;
   }
+
+  @media screen and (min-width: $tablet) {
+    font-size: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 24px;
+  }
+}
+.filter {
+  display: block;
+  margin: 0 auto;
+
+  height: 44px;
+  padding: 5px 0px 5px 12px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  border: 1px solid $color-blue;
+  @media screen and (min-width: $tablet) {
+    width: 480px;
+    padding: 0px 12px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 50px;
+  }
+}
+.filter::placeholder {
+  color: #b9b9b9;
+  /* txt input */
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }

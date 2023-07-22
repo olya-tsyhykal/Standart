@@ -1,4 +1,4 @@
-import { Carousel } from "@trendyol-js/react-carousel";
+import { Carousel  } from "@trendyol-js/react-carousel";
 import { AiFillStar } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import s from "./Slider.module.scss";
@@ -8,7 +8,7 @@ const Slider = () => {
   // console.log(pageWidth);
   return (
     <div className={s.container}>
-      <Carousel
+      <Carousel 
         show={pageWidth <= 400 ? 1.5 : 2.5}
         slide={pageWidth <= 400 ? 1 : 2}
         swiping={true}

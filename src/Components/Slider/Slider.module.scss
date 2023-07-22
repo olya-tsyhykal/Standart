@@ -8,6 +8,7 @@
   height: 320px;
   margin: 10px;
   background-color: #fff;
+  transition: box-shadow 500ms ease;
   &:hover {
     box-shadow: 2px 2px 10px -5px rgba(11, 110, 165, 1);
   }

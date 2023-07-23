@@ -62,6 +62,7 @@
 }
 .promotionFoto {
   margin-bottom: 12px;
+  object-fit: cover;
   @media screen and (min-width: $tablet) {
     position: absolute;
     width: 300px;
@@ -92,14 +93,14 @@
     width: 340px;
   }
   @media screen and (min-width: $desktop) {
-    font-size: 24px;
-    width: 440px;
+    font-size: 22px;
+    width: 380px;
   }
 }
 .priceContainer {
   text-align: center;
   @media screen and (min-width: $desktop) {
-    margin-top: 130px;
+    margin-top: 100px;
   }
 }
 .oldPrice {

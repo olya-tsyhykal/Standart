@@ -54,7 +54,7 @@ const Slider = () => {
         <div className={s.cart}>
           <div className={s.nameContainer}>
             <BsPerson className={s.icon} />
-            <h4 className={s.name}>Фесенко</h4>
+            <h4 className={s.name}>Горлова</h4>
           </div>
           <p className={s.date}>02.06.2023</p>
           <div className={s.stars}>

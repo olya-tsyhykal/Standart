@@ -30,6 +30,11 @@
     height: 220px;
     z-index: 200;
   }
+  @media screen and (min-width: $desktop) {
+    width: 888px;
+    height: 448px;
+    margin: 0 auto;
+  }
 }
 .promCard {
   @media screen and (min-width: $tablet) {
@@ -53,6 +58,7 @@
     font-size: 32px;
     text-align: start;
   }
+  
 }
 .promotionFoto {
   margin-bottom: 12px;
@@ -62,6 +68,13 @@
     // height: 510px;
     top: 0;
     left: 61%;
+  }
+  @media screen and (min-width: $desktop) {
+    position: absolute;
+    width: 485px;
+    height: 528px;
+    top: 0;
+    left: 50%;
   }
 }
 .description {
@@ -78,9 +91,16 @@
     font-size: 20px;
     width: 340px;
   }
+  @media screen and (min-width: $desktop) {
+    font-size: 24px;
+    width: 440px;
+  }
 }
 .priceContainer {
   text-align: center;
+  @media screen and (min-width: $desktop) {
+    margin-top: 130px;
+  }
 }
 .oldPrice {
   color: var(--blue, #0b6ea5);
@@ -93,6 +113,9 @@
   @media screen and (min-width: $tablet) {
     font-size: 22px;
   }
+  @media screen and (min-width: $desktop) {
+    font-size: 32px;
+  }
 }
 .newPrice {
   color: var(--red, #d71f15);
@@ -104,6 +127,9 @@
 
   @media screen and (min-width: $tablet) {
     font-size: 28px;
+  }
+  @media screen and (min-width: $tablet) {
+    font-size: 38px;
   }
 }
 .promFigure {
@@ -126,8 +152,25 @@
       url("../../Shared/Images/Promotions/Polygon\ 6.png") left 395px top 205px
         no-repeat,
         url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 255px no-repeat;
-    // background-repeat: no-repeat;
+
     background-size: 100px;
-    // background-position: left 400px top 0px;
+  }
+  @media screen and (min-width: $desktop) {
+    
+    background: url("../../Shared/Images/Promotions/Polygon\ 1.png") left 420px
+        top 0px no-repeat,
+      url("../../Shared/Images/Promotions/Polygon\ 2.png") left 390px top 30px
+        no-repeat,
+      url("../../Shared/Images/Promotions/Polygon\ 3.png") left 355px top 95px
+        no-repeat,
+      url("../../Shared/Images/Promotions/Polygon\ 4.png") left 340px top 145px
+        no-repeat,
+      url("../../Shared/Images/Promotions/Polygon\ 5.png") left 350px top 225px
+        no-repeat,
+      url("../../Shared/Images/Promotions/Polygon\ 6.png") left 360px top 325px
+        no-repeat,
+        url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 455px no-repeat;
+
+    background-size: 200px;
   }
 }

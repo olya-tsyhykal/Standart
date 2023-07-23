@@ -133,6 +133,7 @@
   }
 }
 .fotoAdvantages {
+  object-fit: cover;
   @media screen and (min-width: $tablet) {
     width: 320px;
     height: 378px;

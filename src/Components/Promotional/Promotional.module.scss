@@ -2,7 +2,7 @@
 
 .title {
   padding: 45px 0px 37px 12px;
-  width: 217px;
+  width: 250px;
 
   color: $color-blue;
   font-family: Kreon;
@@ -13,21 +13,22 @@
   text-decoration-line: underline;
   @media screen and (min-width: $tablet) {
     padding: 88px 0px 40px 40px;
-    width: 325px;
+    width: 425px;
     font-size: 36px;
   }
   @media screen and (min-width: $desktop) {
     padding: 88px 0px 89px 67px;
-    width: 360px;
+    width: 600px;
   }
 }
 .promotionContainer {
   padding: 20px 12px;
   background-color: #fff1a5;
+  height: 480px;
   @media screen and (min-width: $tablet) {
     padding: 40px;
     position: relative;
-    height: 220px;
+    height: 300px;
     z-index: 200;
   }
   @media screen and (min-width: $desktop) {
@@ -62,11 +63,13 @@
 }
 .promotionFoto {
   margin-bottom: 12px;
+  width: 280px;
+  height: 196px;
   object-fit: cover;
   @media screen and (min-width: $tablet) {
     position: absolute;
     width: 300px;
-    // height: 510px;
+    height: 300px;
     top: 0;
     left: 61%;
   }

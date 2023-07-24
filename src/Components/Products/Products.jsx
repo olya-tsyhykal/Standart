@@ -25,7 +25,7 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
   const keyId = useMemo(() => nanoid(), []);
 
   const productItem = filterList?.map(({ id, gallery, name, price }) => (
-    <li className={s.productItem} key={keyId} id={id}>
+    <li className={s.productItem} key={id} id={id}>
       <div onClick={toggleModal}>
         <img
           className={s.image}

@@ -4,7 +4,6 @@ import Footer from "../../Components/Footer/Footer";
 import Products from "../../Components/Products/Products";
 import Contacts from "../../Components/Contacts/Contacts";
 
-
 import { getProducts } from "../../Shared/Servises/api";
 import Hero from "../../Components/Hero/Hero";
 import AboutUs from "../../Components/AboutUs/AboutUs";

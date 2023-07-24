@@ -19,8 +19,13 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = ({ searchProducts, deleteOrder }) => {
-  let sum = 0;
-  searchProducts.forEach((el) => (sum += Number.parseFloat(el.price)));
+  const [stateSum, setStateSum] = useState(
+    searchProducts.reduce((acc, el) => {
+      return acc + el.price;
+    }, 0)
+  );
+
+  console.log(stateSum);
 
   const [cartOpen, setCartOpen] = useState(false);
   const [isShow, setIsShow] = useState(false);
@@ -76,6 +81,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
   };
 
   // console.log(searchProducts);
+
   return (
     <header>
       <ToastContainer />
@@ -167,6 +173,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
                       key={item.id}
                       item={item}
                       deleteOrder={deleteOrder}
+                      setStateSum={setStateSum}
                     />
                   ))}
                 </ul>
@@ -189,7 +196,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
                     />
                   </div>
 
-                  <p className={s.sum}>До сплати: {sum.toFixed(2)} грн.</p>
+                  <p className={s.sum}>До сплати: {stateSum.toFixed(2)} грн.</p>
                   <Button type="submit" variant="success">
                     Замовити
                   </Button>

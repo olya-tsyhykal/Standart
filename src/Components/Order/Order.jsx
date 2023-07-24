@@ -2,15 +2,12 @@ import s from "./Order.module.scss";
 import { FaTrash } from "react-icons/fa";
 import { useState } from "react";
 
-const Order = ({ item, deleteOrder }) => {
+const Order = ({ item, deleteOrder, setStateSum }) => {
   const [state, setState] = useState(1);
-  // const [sumArray, setSumArray] = useState([]);
 
   const increment = () => {
     setState((prevstate) => prevstate + 1);
-    // const newPrice = state * price;
-    // console.log(newPrice);
-    // setSumArray((prevstate) => [...prevstate, newPrice]);
+    setStateSum((prevstate) => prevstate + item.price);
   };
   const dicrement = () => {
     if (state <= 1) {
@@ -18,6 +15,7 @@ const Order = ({ item, deleteOrder }) => {
       return;
     }
     setState((prevstate) => prevstate - 1);
+    setStateSum((prevstate) => prevstate - item.price);
   };
   // console.log(sumArray);
   return (
@@ -37,7 +35,13 @@ const Order = ({ item, deleteOrder }) => {
           </div>
         </div>
         <p className={s.price}>{item.price * state} грн</p>
-        <FaTrash className={s.del} onClick={() => deleteOrder(item.id)} />
+        <FaTrash
+          className={s.del}
+          onClick={() => {
+            setStateSum((prevstate) => prevstate - item.price * state);
+            deleteOrder(item.id);
+          }}
+        />
       </div>
     </li>
   );

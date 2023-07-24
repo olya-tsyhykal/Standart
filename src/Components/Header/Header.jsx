@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 import { FaShoppingCart } from "react-icons/fa";
@@ -19,11 +19,15 @@ import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = ({ searchProducts, deleteOrder }) => {
-  const [stateSum, setStateSum] = useState(
-    searchProducts.reduce((acc, el) => {
-      return acc + el.price;
-    }, 0)
-  );
+  const [stateSum, setStateSum] = useState(0);
+
+  useEffect(() => {
+    setStateSum(
+      searchProducts.reduce((acc, el) => {
+        return acc + el.price;
+      }, 0)
+    );
+  }, [searchProducts]);
 
   console.log(stateSum);
 

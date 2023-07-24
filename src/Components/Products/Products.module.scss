@@ -42,7 +42,7 @@
   background: #fff;
   transition: box-shadow 500ms ease;
   &:hover {
-    box-shadow:  4px 5px 5px -4px rgba(11, 110, 165, 1);
+    box-shadow: 4px 5px 5px -4px rgba(11, 110, 165, 1);
   }
 }
 .image {
@@ -111,7 +111,6 @@
     background: $color-brand_yellow;
     transform: scale(1.1) translateY(-5px);
     font-weight: 600;
-  
   }
 }
 .titleModalDetails {
@@ -152,12 +151,29 @@
     font-size: 24px;
   }
 }
+.search {
+  position: relative;
+}
+.iconSearch {
+  position: absolute;
+  top: 9px;
+  left: 55px;
+  color: #b9b9b9;
+  @media screen and (min-width: $tablet) {
+    top: 9px;
+    left: 150px;
+  }
+  @media screen and (min-width: $desktop) {
+    top: 9px;
+    left: 58px;
+  }
+}
 .filter {
   display: block;
   margin: 0 auto;
 
-  height: 44px;
-  padding: 5px 0px 5px 12px;
+  height: 32px;
+  padding: 0px 20px;
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
@@ -165,13 +181,16 @@
   border: 1px solid $color-blue;
   @media screen and (min-width: $tablet) {
     width: 480px;
-    padding: 0px 12px;
+    padding: 0px 20px;
   }
   @media screen and (min-width: $desktop) {
     margin-left: 50px;
   }
 }
 .filter::placeholder {
+  padding-left: 12px;
+
+  transform: translateY(-0.2rem);
   color: #b9b9b9;
   /* txt input */
   font-family: Kreon;

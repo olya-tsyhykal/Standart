@@ -3,6 +3,7 @@ import s from "./Products.module.scss";
 import Modal from "../../Components/Modal/Modal";
 import { useState } from "react";
 import Categories from "../Categories/Categories";
+import { FiSearch } from "react-icons/fi";
 
 const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
   const [isShow, setIsShow] = useState(false);
@@ -45,16 +46,19 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
     <section id="products">
       <h2 className={s.title}>Каталог товарів</h2>
       <Categories chooseCategory={chooseCategory} />
-      <input
-        type="search"
-        name="filter"
-        value={filter}
-        placeholder="назва товару..."
-        onChange={(event) => {
-          setFilter(event.target.value);
-        }}
-        className={s.filter}
-      />
+      <div className={s.search}>
+        <FiSearch className={s.iconSearch} />
+        <input
+          type="search"
+          name="filter"
+          value={filter}
+          placeholder="пошук товарів..."
+          onChange={(event) => {
+            setFilter(event.target.value);
+          }}
+          className={s.filter}
+        />
+      </div>
       <ul className={s.products}>{productItem}</ul>
       <button type="button" className={s.loadMore} onClick={onClickLoadVore}>
         Загрузити ще

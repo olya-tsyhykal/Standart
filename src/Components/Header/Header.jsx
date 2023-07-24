@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
-import { FaShoppingCart, FaWindowClose } from "react-icons/fa";
+import { FaShoppingCart } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Modal from "../Modal/Modal";
@@ -153,7 +154,10 @@ const Header = ({ searchProducts, deleteOrder }) => {
       {cartOpen && (
         <Modal onClose={toggleModal}>
           <div className={s.modalContent}>
-            <h2 className={s.title}>КОРЗИНА</h2>
+            <div className={s.titleContainer}>
+              <FaShoppingCart className={s.cartIcon} />
+              <h2 className={s.title}>Кошик</h2>
+            </div>
 
             {searchProducts.length > 0 ? (
               <div className={s.cartContainer}>
@@ -166,29 +170,35 @@ const Header = ({ searchProducts, deleteOrder }) => {
                     />
                   ))}
                 </ul>
-                <p className={s.sum}>Загальна сума: {sum.toFixed(2)} грн.</p>
+                <p className={s.contactsTitle}>
+                  Вкажіть контактні данні для оформлення
+                </p>
                 <form id="tg" onSubmit={hendleSubmit}>
                   <div className={s.cartForm}>
-                    <TextField
+                    <input
                       value={name}
                       onChange={hendleInputChange}
+                      className={s.inputForm}
                       {...fields.name}
                     />
-                    <TextField
+                    <input
                       value={number}
                       onChange={hendleInputChange}
+                      className={s.inputForm}
                       {...fields.number}
                     />
                   </div>
+
+                  <p className={s.sum}>До сплати: {sum.toFixed(2)} грн.</p>
                   <Button type="submit" variant="success">
-                    Відправити
+                    Замовити
                   </Button>
                 </form>
               </div>
             ) : (
               <h2 className={s.pusto}>Товари відсутні</h2>
             )}
-            <FaWindowClose onClick={toggleModal} className={s.modal__close} />
+            <AiOutlineClose onClick={toggleModal} className={s.modal__close} />
           </div>
         </Modal>
       )}

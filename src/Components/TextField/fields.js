@@ -2,7 +2,7 @@ export const fields = {
   name: {
     label: "Name",
     name: "name",
-    placeholder: "input name",
+    placeholder: "Ім'я",
     required: true,
     type: "text",
     pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
@@ -24,12 +24,12 @@ export const fields = {
     placeholder: "input password",
     required: true,
     type: "password",
-    title: "Please enter correct email",
+    title: "Please enter correct password",
   },
   number: {
     label: "Number",
     name: "number",
-    placeholder: "input number",
+    placeholder: "+38 (000) 000 00 00",
     required: true,
     type: "text",
     pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",

@@ -1,4 +1,5 @@
 import { nanoid } from "nanoid";
+import { useMemo } from "react";
 import s from "./Products.module.scss";
 import Modal from "../../Components/Modal/Modal";
 import { useState } from "react";
@@ -21,26 +22,26 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
     item.name.toLowerCase().includes(filter.toLocaleLowerCase())
   );
 
-  const productItem = filterList?.map(
-    ({ id, gallery, name, country, price, category }) => (
-      <li className={s.productItem} key={nanoid()} id={id}>
-        <div onClick={toggleModal}>
-          <img
-            className={s.image}
-            src={gallery}
-            alt={name}
-            id={id}
-            onClick={findDetails}
-          />
-        </div>
-        <p className={s.name}>{name}</p>
-        <b className={s.price}>{price} грн</b>
-        <div className={s.add_to_card} onClick={findIdProduct} id={id}>
-          Додати
-        </div>
-      </li>
-    )
-  );
+  const keyId = useMemo(() => nanoid(), []);
+
+  const productItem = filterList?.map(({ id, gallery, name, price }) => (
+    <li className={s.productItem} key={keyId} id={id}>
+      <div onClick={toggleModal}>
+        <img
+          className={s.image}
+          src={gallery}
+          alt={name}
+          id={id}
+          onClick={findDetails}
+        />
+      </div>
+      <p className={s.name}>{name}</p>
+      <b className={s.price}>{price} грн</b>
+      <div className={s.add_to_card} onClick={findIdProduct} id={id}>
+        Додати
+      </div>
+    </li>
+  ));
   const { id, gallery, name, country, description, price } = searchInfo;
   return (
     <section id="products">

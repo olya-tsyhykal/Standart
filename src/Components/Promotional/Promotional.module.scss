@@ -25,11 +25,11 @@
   padding: 20px 12px;
   background-color: #fff1a5;
   height: 480px;
+  z-index: 1;
   @media screen and (min-width: $tablet) {
     padding: 40px;
     position: relative;
     height: 300px;
-    z-index: 200;
   }
   @media screen and (min-width: $desktop) {
     width: 888px;

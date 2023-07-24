@@ -157,7 +157,7 @@
 .iconSearch {
   position: absolute;
   top: 9px;
-  left: 55px;
+  left: 70px;
   color: #b9b9b9;
   @media screen and (min-width: $tablet) {
     top: 9px;
@@ -188,9 +188,9 @@
   }
 }
 .filter::placeholder {
-  padding-left: 12px;
+  padding-left: 20px;
 
-  transform: translateY(-0.2rem);
+  transform: translateY(-0.18rem);
   color: #b9b9b9;
   /* txt input */
   font-family: Kreon;

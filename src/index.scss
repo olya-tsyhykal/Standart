@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&family=Kreon:wght@300;400;500;600;700&display=swap");
 @import "./Shared/styles/index";
-@import 'bootstrap/scss/bootstrap';
+@import "bootstrap/scss/bootstrap";
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, Kreon "Courier New",
     monospace;
@@ -37,4 +37,7 @@ img {
   display: block;
   width: 100%;
   height: auto;
+}
+.active {
+  color: #fad308;
 }

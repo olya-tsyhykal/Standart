@@ -59,7 +59,6 @@
     font-size: 32px;
     text-align: start;
   }
-  
 }
 .promotionFoto {
   margin-bottom: 12px;
@@ -155,12 +154,12 @@
         no-repeat,
       url("../../Shared/Images/Promotions/Polygon\ 6.png") left 395px top 205px
         no-repeat,
-        url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 255px no-repeat;
+      url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 255px
+        no-repeat;
 
     background-size: 100px;
   }
   @media screen and (min-width: $desktop) {
-    
     background: url("../../Shared/Images/Promotions/Polygon\ 1.png") left 420px
         top 0px no-repeat,
       url("../../Shared/Images/Promotions/Polygon\ 2.png") left 390px top 30px
@@ -173,7 +172,8 @@
         no-repeat,
       url("../../Shared/Images/Promotions/Polygon\ 6.png") left 360px top 325px
         no-repeat,
-        url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 455px no-repeat;
+      url("../../Shared/Images/Promotions/Polygon\ 7.png") left 400px top 455px
+        no-repeat;
 
     background-size: 200px;
   }

@@ -1,23 +1,30 @@
 import s from "./Order.module.scss";
 import { FaTrash } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const Order = ({ item, deleteOrder, setStateSum }) => {
-  const [state, setState] = useState(1);
+const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
+  const [count, setCount] = useState(1);
+
+  useEffect(() => {
+    setQuantity(count);
+  }, [count]);
 
   const increment = () => {
-    setState((prevstate) => prevstate + 1);
+    setCount((prevstate) => prevstate + 1);
+
     setStateSum((prevstate) => prevstate + item.price);
   };
   const dicrement = () => {
-    if (state <= 1) {
-      setState(1);
+    if (count <= 1) {
+      setCount(1);
+
       return;
     }
-    setState((prevstate) => prevstate - 1);
+    setCount((prevstate) => prevstate - 1);
+
     setStateSum((prevstate) => prevstate - item.price);
   };
-  // console.log(sumArray);
+  console.log("count:", count);
   return (
     <li className={s.productItem} id={item.id}>
       <div className={s.imageNameContainer}>
@@ -29,16 +36,17 @@ const Order = ({ item, deleteOrder, setStateSum }) => {
           <div className={s.plus} onClick={increment}>
             +
           </div>
-          <div className={s.plus}>{state}</div>
+          <div className={s.plus}>{count}</div>
           <div className={s.plus} onClick={dicrement}>
             -
           </div>
         </div>
-        <p className={s.price}>{item.price * state} грн</p>
+        <p className={s.price}>{item.price * count} грн</p>
         <FaTrash
           className={s.del}
           onClick={() => {
-            setStateSum((prevstate) => prevstate - item.price * state);
+            // setStateSum((prevstate) => prevstate - item.price * count);
+
             deleteOrder(item.id);
           }}
         />

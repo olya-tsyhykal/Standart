@@ -10,7 +10,6 @@ import Order from "../Order/Order";
 import Button from "react-bootstrap/Button";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 
-import TextField from "../TextField/TextField";
 import { fields } from "../TextField/fields";
 import { sendMassege } from "../../Shared/Servises/tgAPI";
 import { ToastContainer, toast } from "react-toastify";
@@ -20,14 +19,16 @@ import { Link, animateScroll as scroll } from "react-scroll";
 
 const Header = ({ searchProducts, deleteOrder }) => {
   const [stateSum, setStateSum] = useState(0);
+  const [quantity, setQuantity] = useState(1);
+  console.log("quantity:", quantity);
 
   useEffect(() => {
     setStateSum(
       searchProducts.reduce((acc, el) => {
-        return acc + el.price;
+        return acc + el.price * quantity;
       }, 0)
     );
-  }, [searchProducts]);
+  }, [searchProducts, quantity]);
 
   console.log(stateSum);
 
@@ -62,7 +63,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
     messege += `<b>Ім'я замовника: ${name}</b>\n`;
     messege += `<b>Телефон замовника: ${number}</b>\n`;
     messege += `<b>Список товарів: ${productItem}</b>\n`;
-    messege += `<b>Загальна сума замовлення: ${sum} грн.</b>\n`;
+    messege += `<b>Загальна сума замовлення: ${stateSum} грн.</b>\n`;
 
     sendMassege(messege);
 
@@ -178,6 +179,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
                       item={item}
                       deleteOrder={deleteOrder}
                       setStateSum={setStateSum}
+                      setQuantity={setQuantity}
                     />
                   ))}
                 </ul>

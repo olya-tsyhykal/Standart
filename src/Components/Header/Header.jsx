@@ -171,6 +171,14 @@ const Header = ({ searchProducts, deleteOrder }) => {
 
             {searchProducts.length > 0 ? (
               <div className={s.cartContainer}>
+                <div className={s.headerCart}>
+                  <p className={s.headerCartTitle}>Назва</p>
+                  <div className={s.headerCartBlock}>
+                    <p className={s.headerCartTitle}>Кількість</p>
+                    <p className={s.headerCartTitle}>Вартість</p>
+                    <p className={s.headerCartTitle}>Видалити</p>
+                  </div>
+                </div>
                 <ul>
                   {searchProducts?.map((item) => (
                     <Order
@@ -182,31 +190,35 @@ const Header = ({ searchProducts, deleteOrder }) => {
                     />
                   ))}
                 </ul>
+
                 <p className={s.contactsTitle}>
                   Вкажіть контактні данні для оформлення
                 </p>
                 <form id="tg" onSubmit={hendleSubmit}>
-                  <div className={s.cartForm}>
-                    <input
-                      value={name}
-                      onChange={hendleInputChange}
-                      className={s.inputForm}
-                      {...fields.name}
-                    />
-                    <input
-                      value={number}
-                      onChange={hendleInputChange}
-                      className={s.inputForm}
-                      {...fields.number}
-                    />
+                  <div className={s.formContainer}>
+                    <div className={s.cartForm}>
+                      <input
+                        value={name}
+                        onChange={hendleInputChange}
+                        className={s.inputForm}
+                        {...fields.name}
+                      />
+                      <input
+                        value={number}
+                        onChange={hendleInputChange}
+                        className={s.inputForm}
+                        {...fields.number}
+                      />
+                    </div>
+                    <div className={s.payContainer}>
+                      <p className={s.sum}>
+                        До сплати: <span>{stateSum.toFixed(2)} грн</span>
+                      </p>
+                      <button type="submit" className={s.buttonOrder}>
+                        Замовити
+                      </button>
+                    </div>
                   </div>
-
-                  <p className={s.sum}>
-                    До сплати: <span>{stateSum.toFixed(2)} грн</span>
-                  </p>
-                  <button type="submit" className={s.buttonOrder}>
-                    Замовити
-                  </button>
                 </form>
               </div>
             ) : (

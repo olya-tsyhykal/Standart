@@ -1,17 +1,31 @@
+@import "../../Shared/styles/index";
+
 .productItem {
   width: 100%;
-  // float: left;
-  // margin-bottom: 20px;
+  background-color: #fff;
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid var(--grey, #b9b9b9);
+  }
 }
 .imageNameContainer {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    margin: 8px;
+  }
 }
 .image {
   width: 56px;
-  height: 64px;
+  height: 56px;
   margin-right: 8px;
+  @media screen and (min-width: $desktop) {
+    width: 64px;
+    height: 64px;
+  }
 }
 .name {
   color: #5b5b5b;
@@ -20,12 +34,27 @@
   font-style: normal;
   font-weight: 700;
   line-height: 150%; /* 21px */
+  @media screen and (min-width: $tablet) {
+    width: 250px;
+    font-size: 16px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 347px;
+    font-size: 20px;
+  }
 }
 .priceContainer {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0px;
+    margin-left: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 200px;
+  }
 }
 .incrementDecrementContainer {
   display: flex;
@@ -35,10 +64,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   width: 40px;
   height: 40px;
   padding: 8px;
   border: 1px solid #b9b9b9;
+
+  color: #5b5b5b;
+  font-family: Kreon;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
 }
 .price {
   color: #0b6ea5;
@@ -48,6 +85,14 @@
   font-style: normal;
   font-weight: 700;
   line-height: 150%; /* 24px */
+  @media screen and (min-width: $tablet) {
+    margin-left: 15px;
+    font-size: 20px;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-left: 15px;
+    font-size: 24px;
+  }
 }
 .del {
   cursor: pointer;
@@ -56,5 +101,11 @@
   &:focus {
     transform: scale(1.4);
     color: #fad308;
+  }
+  @media screen and (min-width: $tablet) {
+    margin-left: 70px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-left: 50px;
   }
 }

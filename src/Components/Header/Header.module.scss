@@ -260,10 +260,18 @@ header {
   line-height: 21px; /* 21px */
 }
 .sum {
-  float: left;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 15px;
+  text-align: right;
+  color: #0b6ea5;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+
+  margin-bottom: 12px;
+}
+.sum span {
+  margin-left: 8px;
 }
 .cartContainer {
   display: flex;
@@ -277,4 +285,22 @@ header {
   padding: 10px 59px 10px 5px;
   border: 1px solid #fad308;
   margin-bottom: 12px;
+  // caret-color: #fad308;
+  // accent-color: #fad308;
+}
+.buttonOrder {
+  display: flex;
+  width: 304px;
+  height: 44px;
+  padding: 10px 20px 12px 20px;
+  justify-content: center;
+  align-items: center;
+  background: #ffe663;
+
+  color: #5b5b5b;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

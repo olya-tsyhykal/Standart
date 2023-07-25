@@ -11,7 +11,7 @@ const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
 
   const increment = () => {
     setCount((prevstate) => prevstate + 1);
-
+    // setQuantity(count);
     setStateSum((prevstate) => prevstate + item.price);
   };
   const dicrement = () => {
@@ -21,7 +21,7 @@ const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
       return;
     }
     setCount((prevstate) => prevstate - 1);
-
+    // setQuantity(count);
     setStateSum((prevstate) => prevstate - item.price);
   };
   console.log("count:", count);
@@ -45,7 +45,8 @@ const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
         <FaTrash
           className={s.del}
           onClick={() => {
-            // setStateSum((prevstate) => prevstate - item.price * count);
+            setQuantity(count);
+            setStateSum((prevstate) => prevstate - item.price * count);
 
             deleteOrder(item.id);
           }}

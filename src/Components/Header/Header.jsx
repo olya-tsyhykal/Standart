@@ -7,7 +7,6 @@ import { BsPerson } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
-import Button from "react-bootstrap/Button";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 
 import { fields } from "../TextField/fields";
@@ -28,7 +27,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
         return acc + el.price * quantity;
       }, 0)
     );
-  }, [searchProducts, quantity]);
+  }, [searchProducts]);
 
   console.log(stateSum);
 
@@ -202,10 +201,12 @@ const Header = ({ searchProducts, deleteOrder }) => {
                     />
                   </div>
 
-                  <p className={s.sum}>До сплати: {stateSum.toFixed(2)} грн.</p>
-                  <Button type="submit" variant="success">
+                  <p className={s.sum}>
+                    До сплати: <span>{stateSum.toFixed(2)} грн</span>
+                  </p>
+                  <button type="submit" className={s.buttonOrder}>
                     Замовити
-                  </Button>
+                  </button>
                 </form>
               </div>
             ) : (

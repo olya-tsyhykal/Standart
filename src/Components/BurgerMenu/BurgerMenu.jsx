@@ -1,12 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import { BsPerson } from "react-icons/bs";
-import {
-  BsFacebook,
-  BsInstagram,
-  BsTelegram,
-  BsArrowUpSquare,
-} from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTelegram } from "react-icons/bs";
 import { FaViber } from "react-icons/fa";
 import { BiCategory, BiSolidPhone } from "react-icons/bi";
 import { FcAbout } from "react-icons/fc";

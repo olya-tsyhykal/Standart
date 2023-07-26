@@ -5,6 +5,7 @@ import Modal from "../../Components/Modal/Modal";
 import { useState } from "react";
 import Categories from "../Categories/Categories";
 import { FiSearch } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
 
 const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
   const [isShow, setIsShow] = useState(false);
@@ -42,7 +43,7 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
       </div>
     </li>
   ));
-  const { id, gallery, name, country, description, price } = searchInfo;
+  const { id, gallery, name, description, price } = searchInfo;
   return (
     <section id="products">
       <h2 className={s.title}>Каталог товарів</h2>
@@ -66,14 +67,20 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
       </button>
       {isShow && (
         <Modal onClose={toggleModal}>
-          <h2 className={s.titleModalDetails}>Детальна інформація</h2>
-          <img className={s.imageDetails} src={gallery} alt={name} />
-          <h2 className={s.name}>{name}</h2>
-          <h3 className={s.country}>{country}</h3>
-          <p className={s.description}>{description}</p>
-          <b className={s.price}>Ціна: {price} грн.</b>
-          <div className={s.add_to_card} onClick={findIdProduct} id={id}>
-            +
+          <div className={s.modalDetails}>
+            <AiOutlineClose
+              className={s.closeModalDetails}
+              onClick={toggleModal}
+            />
+            <h2 className={s.nameDetails}>{name}</h2>
+            <p className={s.description}>{description}</p>
+            <img className={s.imageDetails} src={gallery} alt={name} />
+            <p className={s.priceDetails}>
+              Вартість: <span>{price}</span> грн
+            </p>
+            <div className={s.addDetails} onClick={findIdProduct} id={id}>
+              Додати
+            </div>
           </div>
         </Modal>
       )}

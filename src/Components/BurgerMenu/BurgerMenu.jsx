@@ -50,11 +50,12 @@ const BurgerMenu = ({ onClose }) => {
             onClick={onClose}
           />
           <div className={s.login}>
-            <NavLink to="/login">
+            <NavLink to="/login" className={s.loginNav}>
               <BsPerson className={s.loginBurger} />
+
+              <p className={s.loginText}>Увійти в особистий кабінет</p>
             </NavLink>
             <Outlet />
-            <p className={s.loginText}>Увійти в особистий кабінет</p>
           </div>
         </div>
 

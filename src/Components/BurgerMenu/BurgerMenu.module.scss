@@ -35,7 +35,7 @@
 .closeBurgerMenuButton {
   position: absolute;
   top: 8px;
-  left: 268px;
+  left: 260px;
 
   color: #fff;
   transition: color, transform 500ms ease;
@@ -118,4 +118,27 @@
   &:hover {
     color: $color-brand_yellow;
   }
+}
+.socialNetworkTitle {
+  margin-top: 20px;
+  padding: 12px 0px;
+
+  color: #0b6ea5;
+  font-family: Kreon;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.socialNetworkIcon {
+  width: 30px;
+  height: 30px;
+  color: #0b6ea5;
+  transition: color 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+  }
+}
+.socialNetworkIcon:not(:last-child) {
+  margin-right: 12px;
 }

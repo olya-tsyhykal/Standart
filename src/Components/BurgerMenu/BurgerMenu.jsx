@@ -1,6 +1,13 @@
 import { Outlet, NavLink } from "react-router-dom";
 import { FaRegWindowClose } from "react-icons/fa";
 import { BsPerson } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsInstagram,
+  BsTelegram,
+  BsArrowUpSquare,
+} from "react-icons/bs";
+import { FaViber } from "react-icons/fa";
 import { BiCategory, BiSolidPhone } from "react-icons/bi";
 import { FcAbout } from "react-icons/fc";
 import { MdArrowForwardIos } from "react-icons/md";
@@ -101,6 +108,13 @@ const BurgerMenu = ({ onClose }) => {
             </Link>
           </li>
         </ul>
+        <h4 className={s.socialNetworkTitle}>Соціальні мережі</h4>
+        <div className={s.socialNetworkIcons}>
+          <BsFacebook className={s.socialNetworkIcon} />
+          <BsInstagram className={s.socialNetworkIcon} />
+          <BsTelegram className={s.socialNetworkIcon} />
+          <FaViber className={s.socialNetworkIcon} />
+        </div>
       </div>
     </div>,
     Modalroot

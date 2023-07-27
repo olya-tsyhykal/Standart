@@ -25,7 +25,7 @@
   padding: 8px;
   @media screen and (min-width: $tablet) {
     width: 768px;
-    height: 848px;
+    min-height: 535px;
     padding: 20px;
   }
   @media screen and (min-width: $desktop) {

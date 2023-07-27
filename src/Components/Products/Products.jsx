@@ -73,13 +73,18 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
               onClick={toggleModal}
             />
             <h2 className={s.nameDetails}>{name}</h2>
-            <p className={s.description}>{description}</p>
-            <img className={s.imageDetails} src={gallery} alt={name} />
-            <p className={s.priceDetails}>
-              Вартість: <span>{price}</span> грн
-            </p>
-            <div className={s.addDetails} onClick={findIdProduct} id={id}>
-              Додати
+            <div className={s.detailsContainer}>
+              <p className={s.description}>{description}</p>
+              <div className={s.priceContainer}>
+                <img className={s.imageDetails} src={gallery} alt={name} />
+
+                <p className={s.priceDetails}>
+                  Вартість: <span>{price}</span> грн
+                </p>
+                <div className={s.addDetails} onClick={findIdProduct} id={id}>
+                  Додати
+                </div>
+              </div>
             </div>
           </div>
         </Modal>

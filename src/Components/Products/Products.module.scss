@@ -182,7 +182,7 @@
   border: 1px solid #e9e9e9;
 
   margin: auto;
-  width: 280px;
+  width: 272px;
   margin-bottom: 24px;
   @media screen and (min-width: $tablet) {
     margin: 0;
@@ -192,11 +192,12 @@
   @media screen and (min-width: $desktop) {
     width: 484px;
     height: 330px;
+    margin-right: 50px;
   }
 }
 .imageDetails {
   margin: auto;
-  width: 280px;
+  width: 272px;
   height: 320px;
   object-fit: contain;
   border: 1px solid #e9e9e9;

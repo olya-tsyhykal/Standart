@@ -84,6 +84,18 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
                 <div className={s.addDetails} onClick={findIdProduct} id={id}>
                   Додати
                 </div>
+                <div className={s.priceDetailsDesktopContainer}>
+                  <p className={s.priceDetailsDesktop}>
+                    Вартість: <span>{price}</span> грн
+                  </p>
+                  <div
+                    className={s.addDetailsDesktop}
+                    onClick={findIdProduct}
+                    id={id}
+                  >
+                    Додати
+                  </div>
+                </div>
               </div>
             </div>
           </div>

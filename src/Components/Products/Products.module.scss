@@ -124,11 +124,18 @@
   position: relative;
   background: #fff;
   padding: 44px 20px;
+  @media screen and (min-width: $desktop) {
+    padding: 0;
+    height: 100%;
+  }
 }
 .closeModalDetails {
   position: absolute;
   top: 10px;
   left: 92%;
+  @media screen and (min-width: $desktop) {
+    left: 97%;
+  }
 }
 .nameDetails {
   overflow: hidden;
@@ -145,10 +152,23 @@
     font-size: 32px;
     margin-bottom: 40px;
   }
+  @media screen and (min-width: $desktop) {
+    width: 480px;
+    margin-left: calc(50% - 20px);
+    margin-bottom: 40px;
+    padding-top: 40px;
+  }
 }
 .detailsContainer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+  }
+  @media screen and (min-width: $desktop) {
+    flex-direction: row-reverse;
+  }
 }
 .description {
   overflow: hidden;
@@ -169,6 +189,10 @@
     width: 448px;
     font-size: 20px;
   }
+  @media screen and (min-width: $desktop) {
+    width: 484px;
+    height: 330px;
+  }
 }
 .imageDetails {
   margin: auto;
@@ -183,12 +207,63 @@
     height: 224px;
     margin-bottom: 50px;
   }
+  @media screen and (min-width: $desktop) {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 336px;
+    height: 438px;
+  }
 }
 .priceContainer {
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: column;
   }
+}
+.priceDetailsDesktopContainer {
+  display: none;
+  @media screen and (min-width: $desktop) {
+    position: absolute;
+    top: 90%;
+    left: 55%;
+    display: flex;
+  }
+}
+.priceDetailsDesktop {
+  @media screen and (min-width: $desktop) {
+    display: flex;
+    align-items: center;
+    color: #0b6ea5;
+    font-family: Kreon;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+  }
+}
+.priceDetailsDesktop span {
+  @media screen and (min-width: $desktop) {
+    font-weight: 500;
+  }
+}
+.addDetailsDesktop {
+  margin-left: 40px;
+  display: flex;
+  width: 180px;
+  padding: 10px 20px 12px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  background: var(--yellow-btn, #ffe663);
+
+  color: var(--dark-main, #5b5b5b);
+  font-family: Kreon;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 .priceDetails {
   color: #0b6ea5;
@@ -201,6 +276,9 @@
   margin-bottom: 16px;
   @media screen and (min-width: $tablet) {
     font-size: 24px;
+  }
+  @media screen and (min-width: $desktop) {
+    display: none;
   }
 }
 .priceDetails span {
@@ -223,6 +301,10 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
+  @media screen and (min-width: $desktop) {
+    display: none;
+  }
 }
 .loadMore {
   display: block;

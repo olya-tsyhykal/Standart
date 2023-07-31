@@ -53,10 +53,7 @@ const LoginForm = ({ onSubmit }) => {
         />
       </div>
       <button type="submit" className={s.button}>
-        <span className={s.actualText}>&nbsp;login&nbsp;</span>
-        <span className={s.hoverText} aria-hidden="true">
-          &nbsp;login&nbsp;
-        </span>
+        Увійти в особистий кабінет
       </button>
     </form>
   );

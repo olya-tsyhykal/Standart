@@ -1,3 +1,5 @@
+@import "../../Shared/styles/index";
+
 .block {
   display: flex;
   justify-content: center;
@@ -5,19 +7,39 @@
   margin-bottom: 15px;
 }
 .label {
-  padding: 10px 15px;
-  color: #fff;
-  font-size: 20px;
-  text-shadow: 1px 1px 5px black;
+  width: 280px;
+  color: #5b5b5b;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+  @media screen and (min-width: $tablet) {
+    width: 480px;
+    font-size: 20px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 676px;
+    font-size: 24px;
+  }
 }
 .input {
   display: block;
   width: 100%;
-  padding: 0 15px;
-  margin-top: 5px;
-  border-width: 0;
+  padding: 0 12px;
+  margin-top: 8px;
+  border: 1px solid #b9b9b9;
+  background: #fff;
   line-height: 40px;
-  border-radius: 10px;
+  // border-radius: 10px;
+  @media screen and (min-width: $tablet) {
+    line-height: 60px;
+    padding: 0 16px;
+  }
+  @media screen and (min-width: $desktop) {
+    line-height: 72px;
+  }
 }
 ::placeholder {
   // color: white;

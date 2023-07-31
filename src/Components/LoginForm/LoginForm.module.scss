@@ -1,37 +1,33 @@
-.button {
-  display: block;
-  margin: 0 auto;
-  height: auto;
-  background: transparent;
-  padding: 0;
-  border: none;
+@import "../../Shared/styles/index";
 
-  --border-right: 6px;
-  --text-stroke-color: rgba(255, 255, 255, 0.6);
-  --animation-color: #37ff8b;
-  --fs-size: 2em;
-  letter-spacing: 3px;
-  text-decoration: none;
-  font-size: var(--fs-size);
-  font-family: "Arial";
-  position: relative;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
-}
-.hoverText {
-  position: absolute;
-  box-sizing: border-box;
-  content: attr(data-text);
-  color: var(--animation-color);
-  width: 0%;
-  inset: 0;
-  border-right: var(--border-right) solid var(--animation-color);
-  overflow: hidden;
-  transition: 0.5s;
-  -webkit-text-stroke: 1px var(--animation-color);
-}
-.button:hover .hoverText {
-  width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color));
+.button {
+  display: flex;
+  padding: 10px 20px 12px 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 280px;
+  margin-top: 36px;
+
+  color: #5b5b5b;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: #ffe663;
+
+  transition: background 500ms ease;
+
+  &:hover,
+  &:focus {
+    background: #fad308;
+  }
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+    margin-top: 40px;
+    margin-right: auto;
+    width: 280px;
+    height: 72px;
+  }
 }

@@ -3,6 +3,7 @@ import { getUser } from "../../Shared/Redux/auth/auth-selectors";
 import { logOutOperation } from "../../Shared/Redux/auth/auth-operations";
 import { Navigate } from "react-router-dom";
 import useAuth from "../../Shared/hooks/useAuth";
+import { MdLogout } from "react-icons/md";
 import s from "./UserMenu.module.scss";
 
 const UserMenu = () => {
@@ -17,10 +18,10 @@ const UserMenu = () => {
   }
   return (
     <div className={s.containerLogOut}>
-      <span className={s.userName}>{email}</span>
-      <button onClick={onLogout} className={s.logout}>
-        Logout
-      </button>
+      <div className={s.nameLogOut}>
+        <span className={s.userName}>{email}</span>
+        <MdLogout onClick={onLogout} className={s.logout} />
+      </div>
     </div>
   );
 };

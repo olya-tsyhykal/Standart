@@ -8,16 +8,19 @@ import {
   addProduct,
   delProduct,
 } from "../../Shared/Servises/api";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import { Outlet, NavLink } from "react-router-dom";
 import ChangeForm from "../../Components/ChangeForm/ChangeForm";
-import AddProductForm from "../../Components/AddProductForm/AddProductForm";
+import Footer from "../../Components/Footer/Footer";
+// import AddProductForm from "../../Components/AddProductForm/AddProductForm";
 
 const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
-  const [findProduct, setFindProduct] = useState(false);
+  // const [findProduct, setFindProduct] = useState(false);
   console.log(data);
 
   useEffect(() => {
@@ -27,7 +30,7 @@ const ProductsPage = () => {
       setData((prevstate) => [...prevstate, ...data]);
     };
     productsItems();
-  }, [page, findProduct]);
+  }, [page]);
 
   const toggleModal = () => {
     setIsShow(!isShow);
@@ -40,7 +43,7 @@ const ProductsPage = () => {
   const onSubmit = (id, product) => {
     changeProduct(id, product);
 
-    setFindProduct(true);
+    // setFindProduct(true);
   };
   const addToProducts = (product) => {
     addProduct(product);
@@ -49,11 +52,11 @@ const ProductsPage = () => {
   };
   const deleteProduct = (id) => {
     delProduct(id);
-    setFindProduct(true);
+    // setFindProduct(true);
     // console.log(id);
   };
 
-  const onClickLoadVore = () => {
+  const onClickLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
@@ -78,16 +81,21 @@ const ProductsPage = () => {
 
   return (
     <div className={s.bgcolor}>
-      <div className={s.header}>
-        <h1>Products Page</h1>;
-        <UserMenu />
-      </div>
-      <AddProductForm onSubmit={addToProducts} />
-      <ul className={s.products}>{productItem}</ul>
-      <button type="button" className={s.loadMore} onClick={onClickLoadVore}>
+      <UserMenu />
+      <h1 className={s.title}>Додавайте товари та редагуйте асортимент</h1>
+      <NavLink to="/add">
+        <button type="button" className={s.addProductButton}>
+          <AiOutlinePlusCircle className={s.plusButton} />
+          <span>Додати новий товар</span>
+        </button>
+      </NavLink>
+      <Outlet />
+      {/* <AddProductForm onSubmit={addToProducts} /> */}
+      {/* <ul className={s.products}>{productItem}</ul> */}
+      {/* <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
         Load more
-      </button>
-      {isShow && (
+      </button> */}
+      {/* {isShow && (
         <Modal onClose={toggleModal}>
           <div className={s.modal}>
             <img className={s.imageDetails} src={gallery} alt={name} />
@@ -96,7 +104,8 @@ const ProductsPage = () => {
           </div>
           <ChangeForm onSubmit={onSubmit} id={id} toggleModal={toggleModal} />
         </Modal>
-      )}
+      )} */}
+      <Footer />
     </div>
   );
 };

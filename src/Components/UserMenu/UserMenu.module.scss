@@ -1,36 +1,47 @@
 @import "../../Shared/styles/index";
 
 .containerLogOut {
-  margin-left: 30px;
+  width: 100%;
   padding: 15px 20px;
+  background: rgba(43, 118, 160, 0.85);
 }
-.logout {
-  margin: 0 auto;
-  padding: 10px 20px;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.5s ease-in-out;
-  border-radius: 10px;
-  border: 2px solid red;
-  color: white;
-  background-color: transparent;
-  cursor: pointer;
-  margin-bottom: 20px;
-  &:hover,
-  &:focus {
-    box-shadow: red 180px 0px 1px inset;
-    font-weight: bold;
-    border-color: white;
+.nameLogOut {
+  text-align: center;
+  @media screen and (min-width: $tablet) {
+    text-align: end;
   }
 }
-.userName {
-  margin-right: 10px;
-  color: white;
-
-  font-size: 12px;
-  text-shadow: 1px 1px 5px black;
-
+.logout {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  color: #fff;
+  transition: color 500ms ease;
+  &:hover {
+    color: $color-brand_yellow;
+  }
   @media screen and (min-width: $tablet) {
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+  }
+  @media screen and (min-width: $desktop) {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+.userName {
+  text-align: end;
+  color: #fff;
+  font-family: Kreon;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  @media screen and (min-width: $tablet) {
+    font-size: 22px;
+  }
+  @media screen and (min-width: $desktop) {
+    font-size: 30px;
   }
 }

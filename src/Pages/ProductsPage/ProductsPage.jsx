@@ -9,6 +9,8 @@ import {
   delProduct,
 } from "../../Shared/Servises/api";
 import { AiOutlinePlusCircle } from "react-icons/ai";
+import { BiSolidEdit } from "react-icons/bi";
+import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import ChangeForm from "../../Components/ChangeForm/ChangeForm";
@@ -60,42 +62,53 @@ const ProductsPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const productItem = data?.map(({ id, gallery, name, country, price }) => (
-    <li className={s.productItem} key={nanoid()} id={id} onClick={findDetails}>
-      <div onClick={toggleModal} className={s.container}>
-        <img className={s.image} src={gallery} alt={name} id={id} />
-        <h2 className={s.name}>{name}</h2>
-        <h3 className={s.country}>{country}</h3>
-        <b className={s.price}>Ціна: {price} грн.</b>
-      </div>
-      <button
-        type="button"
-        className={s.deleteProduct}
-        onClick={() => deleteProduct(id)}
+  const productItem = data?.map(
+    ({ id, gallery, name, category, price, description }) => (
+      <li
+        className={s.productItem}
+        key={nanoid()}
+        id={id}
+        onClick={findDetails}
       >
-        delete
-      </button>
-    </li>
-  ));
-  const { id, gallery, name, price } = searchInfo;
+        <div className={s.itemContainer}>
+          <p className={s.name}>{name}</p>
+          <p className={s.description}>{description}</p>
+          <div className={s.imgContainer}>
+            <img className={s.image} src={gallery} alt={name} id={id} />
+            <div className={s.priceContainer}>
+              <p className={s.price}>{price} грн.</p>
+              <p className={s.category}>{category}</p>
+              <BiSolidEdit className={s.editProduct} />
+              <FaTrash
+                className={s.deleteProduct}
+                onClick={() => deleteProduct(id)}
+              />
+            </div>
+          </div>
+        </div>
+      </li>
+    )
+  );
 
   return (
     <div className={s.bgcolor}>
       <UserMenu />
-      <h1 className={s.title}>Додавайте товари та редагуйте асортимент</h1>
-      <NavLink to="/add">
-        <button type="button" className={s.addProductButton}>
-          <AiOutlinePlusCircle className={s.plusButton} />
-          <span>Додати новий товар</span>
+      <div className={s.bgContainer}>
+        <h1 className={s.title}>Додавайте товари та редагуйте асортимент</h1>
+        <NavLink to="/add">
+          <button type="button" className={s.addProductButton}>
+            <AiOutlinePlusCircle className={s.plusButton} />
+            <span>Додати новий товар</span>
+          </button>
+        </NavLink>
+        <Outlet />
+        <h2 className={s.listProductsTitle}>Список товарів</h2>
+        {/* <AddProductForm onSubmit={addToProducts} /> */}
+        <ul className={s.products}>{productItem}</ul>
+        <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
+          Загурзити ще
         </button>
-      </NavLink>
-      <Outlet />
-      {/* <AddProductForm onSubmit={addToProducts} /> */}
-      {/* <ul className={s.products}>{productItem}</ul> */}
-      {/* <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
-        Load more
-      </button> */}
-      {/* {isShow && (
+        {/* {isShow && (
         <Modal onClose={toggleModal}>
           <div className={s.modal}>
             <img className={s.imageDetails} src={gallery} alt={name} />
@@ -105,6 +118,7 @@ const ProductsPage = () => {
           <ChangeForm onSubmit={onSubmit} id={id} toggleModal={toggleModal} />
         </Modal>
       )} */}
+      </div>
       <Footer />
     </div>
   );

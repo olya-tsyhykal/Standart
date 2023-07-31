@@ -1,13 +1,24 @@
 @import "../../Shared/styles/index";
 
+.bgVideo {
+  object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+}
 .bgcolor {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
-  background: url("../../Shared/Images/bg-login.jpg"),
-    lightgray 0px -156px / 125.469% 138.308% no-repeat;
-  background-size: cover;
-  background-repeat: no-repeat;
+  // z-index: 200;
+
+  // background: url("../../Shared/Images/bg-login.jpg"),
+  //   lightgray 0px -156px / 125.469% 138.308% no-repeat;
+  // background-size: cover;
+  // background-repeat: no-repeat;
 }
 .loginForm {
   position: absolute;

@@ -3,6 +3,7 @@ import { loginOperation } from "../../Shared/Redux/auth/auth-operations";
 import { Navigate } from "react-router-dom";
 import LoginForm from "../../Components/LoginForm/LoginForm";
 import useAuth from "../../Shared/hooks/useAuth";
+import Backgroundvideo from "../../Shared/video/water.mp4";
 
 import s from "./LoginPage.module.scss";
 
@@ -17,7 +18,10 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="container">
+    <div>
+      <video autoPlay loop muted className={s.bgVideo}>
+        <source src={Backgroundvideo} type="video/mp4" />
+      </video>
       <div className={s.bgcolor}>
         <div className={s.loginForm}>
           <h1 className={s.title}>ВХІД</h1>

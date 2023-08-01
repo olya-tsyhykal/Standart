@@ -2,20 +2,118 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  padding: 20px;
+  padding: 20px 8px;
 }
+.title {
+  overflow: hidden;
+  color: #0b6ea5;
+  text-overflow: ellipsis;
+  font-family: Kreon;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  margin-bottom: 20px;
+}
+.select {
+  display: flex;
+  width: 304px;
+  height: 40px;
+  padding: 0px 12px;
+  justify-content: space-between;
+  align-items: center;
+
+  border: 1px solid #b9b9b9;
+  background: #fff;
+
+  color: #b9b9b9;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  margin-bottom: 20px;
+}
+.addName {
+  display: flex;
+  width: 304px;
+  height: 40px;
+  padding: 8px 12px 12px 12px;
+  align-items: center;
+  border: 1px solid #b9b9b9;
+
+  color: #b9b9b9;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  margin-bottom: 20px;
+}
+.addDescription {
+  padding: 12px;
+  width: 304px;
+  height: 340px;
+  border: 1px solid #b9b9b9;
+
+  color: #b9b9b9;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  margin-bottom: 20px;
+}
+.addLink,
+.addPrice {
+  display: flex;
+  width: 304px;
+  height: 40px;
+  padding: 8px 12px 12px 12px;
+  align-items: center;
+  border: 1px solid #b9b9b9;
+
+  color: #b9b9b9;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  margin-bottom: 20px;
+}
+// .addDescription::placeholder {
+//   transform: translateY(-150px);
+// }
 .addComponent:not(:last-child) {
   margin-right: 40px;
 }
 .add {
   display: block;
   margin: 0 auto;
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
+  width: 304px;
+  height: 44px;
+  padding: 10px 20px 12px 20px;
+  margin-bottom: 20px;
+
+  color: #5b5b5b;
+  font-family: Kreon;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  background: #ffe663;
+  transition: background 500ms ease;
   &:hover {
-    color: #fff;
-    background-color: green;
-    border: 2px solid black;
+    background: #fad308;
   }
 }

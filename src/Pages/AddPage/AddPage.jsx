@@ -1,9 +1,20 @@
+import AddProductForm from "../../Components/AddProductForm/AddProductForm";
+import { addProduct } from "../../Shared/Servises/api";
+import { useNavigate } from "react-router-dom";
 import s from "./AddPage.module.scss";
 
 const AddPage = () => {
+  const navigate = useNavigate();
+
+  const addToProducts = (product) => {
+    addProduct(product);
+    console.log(product);
+    navigate(-1);
+  };
+
   return (
     <div>
-      <h1>Add PAGE</h1>
+      <AddProductForm onSubmit={addToProducts} />
     </div>
   );
 };

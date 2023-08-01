@@ -30,6 +30,6 @@ export const addProduct = async (product) => {
 };
 export const delProduct = async (id) => {
   const { data } = await instance.delete(`products/${id}`);
-  console.log(data);
+  // console.log(data);
   return data;
 };

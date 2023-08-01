@@ -22,7 +22,7 @@ const ProductsPage = () => {
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
-  // const [findProduct, setFindProduct] = useState(false);
+  const [findProduct, setFindProduct] = useState(false);
   console.log(data);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const ProductsPage = () => {
       setData((prevstate) => [...prevstate, ...data]);
     };
     productsItems();
-  }, [page]);
+  }, [page, findProduct]);
 
   const toggleModal = () => {
     setIsShow(!isShow);
@@ -47,14 +47,10 @@ const ProductsPage = () => {
 
     // setFindProduct(true);
   };
-  const addToProducts = (product) => {
-    addProduct(product);
-    console.log(product);
-    setFindProduct(true);
-  };
+
   const deleteProduct = (id) => {
     delProduct(id);
-    // setFindProduct(true);
+    setFindProduct(true);
     // console.log(id);
   };
 

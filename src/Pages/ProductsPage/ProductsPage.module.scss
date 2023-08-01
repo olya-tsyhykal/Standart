@@ -71,16 +71,60 @@
 
   margin-bottom: 24px;
 }
-
+.headerProducts {
+  display: none;
+  @media screen and (min-width: $tablet) {
+    background-color: #fff;
+    border: 1px solid #b9b9b9;
+    padding: 8px 40px;
+    display: flex;
+  }
+}
+.headerProductsTitle {
+  text-align: center;
+  color: #5b5b5b;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.headerProductsTitle:not(:last-child) {
+  border-right: 2px solid #b9b9b9;
+  padding-right: 5px;
+}
+.headerProductsTitle:not(:first-child) {
+  padding-left: 12px;
+}
+.headerProductsTitle:first-child {
+  width: 122px;
+}
+.headerProductsTitle:nth-child(2) {
+  width: 237px;
+}
+.headerProductsTitle:nth-child(3) {
+  width: 96px;
+}
+.headerProductsTitle:nth-child(4) {
+  width: 96px;
+}
+.headerProductsTitle:nth-child(5) {
+  width: 96px;
+}
 .productItem {
   background-color: #fff;
   padding: 36px 12px 20px 12px;
   margin-bottom: 10px;
+  @media screen and (min-width: $tablet) {
+    padding-top: 12px;
+    min-height: 180px;
+  }
 }
 .itemContainer {
   position: relative;
 }
 .name {
+  width: 255px;
   overflow: hidden;
   color: #5b5b5b;
   text-overflow: ellipsis;
@@ -91,8 +135,23 @@
   line-height: normal;
 
   margin-bottom: 8px;
+  @media screen and (min-width: $tablet) {
+    width: 121px;
+    font-size: 16px;
+  }
 }
+.name:after {
+  content: "";
+  @media screen and (min-width: $tablet) {
+    height: 150px;
+    width: 2px;
 
+    position: absolute;
+    top: 0;
+    left: 148px;
+    background-color: #b9b9b9;
+  }
+}
 .description {
   overflow: hidden;
   color: #5b5b5b;
@@ -104,6 +163,26 @@
   font-weight: 400;
   line-height: normal;
   margin-bottom: 8px;
+  @media screen and (min-width: $tablet) {
+    width: 230px;
+    height: 180px;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 156px;
+  }
+}
+.description::after {
+  content: "";
+  @media screen and (min-width: $tablet) {
+    height: 150px;
+    width: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 226px;
+    background-color: #b9b9b9;
+  }
 }
 .imgContainer {
   display: flex;
@@ -113,6 +192,10 @@
 .image {
   width: 132px;
   height: 132px;
+  @media screen and (min-width: $tablet) {
+    width: 100px;
+    height: 100px;
+  }
 }
 .priceContainer {
   display: flex;
@@ -127,6 +210,24 @@
   font-weight: 500;
   line-height: normal;
   margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    width: 90px;
+    position: absolute;
+    top: 0;
+    left: 405px;
+  }
+}
+.price::after {
+  content: "";
+  @media screen and (min-width: $tablet) {
+    height: 150px;
+    width: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 75px;
+    background-color: #b9b9b9;
+  }
 }
 .category {
   width: 90px;
@@ -137,6 +238,26 @@
   font-weight: 600;
   line-height: normal;
   margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    margin-bottom: 0px;
+    font-size: 14px;
+    width: 80px;
+    position: absolute;
+    top: 0;
+    left: 493px;
+  }
+}
+.category::after {
+  content: "";
+  @media screen and (min-width: $tablet) {
+    height: 150px;
+    width: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 85px;
+    background-color: #b9b9b9;
+  }
 }
 .editProduct {
   color: #5b5b5b;
@@ -150,6 +271,12 @@
   position: absolute;
   top: -8px;
   left: calc(100% - 20px);
+  @media screen and (min-width: $tablet) {
+    width: 32px;
+    height: 32px;
+    top: 0;
+    left: calc(100% - 120px);
+  }
 }
 .deleteProduct {
   color: #5b5b5b;
@@ -161,6 +288,11 @@
   }
 
   margin-bottom: 20px;
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 3px;
+    left: calc(100% - 50px);
+  }
 }
 .loadMore {
   display: block;

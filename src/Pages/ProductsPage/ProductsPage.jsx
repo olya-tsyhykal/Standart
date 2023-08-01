@@ -110,7 +110,13 @@ const ProductsPage = () => {
         <h2 className={s.listProductsTitle} onClick={productsItems}>
           Список товарів
         </h2>
-
+        <div className={s.headerProducts}>
+          <p className={s.headerProductsTitle}>Назва</p>
+          <p className={s.headerProductsTitle}>Опис</p>
+          <p className={s.headerProductsTitle}>Вартість</p>
+          <p className={s.headerProductsTitle}>Категорія</p>
+          <p className={s.headerProductsTitle}>Редагувати</p>
+        </div>
         <ul className={s.products}>{productItem}</ul>
         <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
           Загурзити ще

@@ -19,7 +19,7 @@ import { Link, animateScroll as scroll } from "react-scroll";
 const Header = ({ searchProducts, deleteOrder }) => {
   const [stateSum, setStateSum] = useState(0);
   const [quantity, setQuantity] = useState(1);
-  console.log("quantity:", quantity);
+  // console.log("quantity:", quantity);
 
   useEffect(() => {
     setStateSum(
@@ -29,7 +29,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
     );
   }, [searchProducts]);
 
-  console.log(stateSum);
+  // console.log(stateSum);
 
   const [cartOpen, setCartOpen] = useState(false);
   const [isShow, setIsShow] = useState(false);

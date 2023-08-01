@@ -1,6 +1,6 @@
 import { useState } from "react";
 import TextField from "../TextField/TextField";
-// import { fields } from "../TextField/fields";
+
 import s from "./ChangeForm.module.scss";
 
 const ChangeForm = ({ onSubmit, id, toggleModal }) => {
@@ -55,45 +55,50 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
     <div>
       <form onSubmit={hendleSubmit} className={s.ChangeForm}>
         <div className={s.form}>
-          <TextField
+          <h1 className={s.title}>Заповніть інформацію</h1>
+          <input
             value={name}
             onChange={hendleInputChange}
-            label="Назва продукту"
             name="name"
-            placeholder="введіть назву продукту"
+            placeholder="назва товару"
             required={true}
             type="text"
+            className={s.addName}
           />
-          <TextField
-            value={link}
-            onChange={hendleInputChange}
-            label="фото продукту"
-            name="link"
-            placeholder="введіть ссилку"
-            required={true}
-            type="text"
-          />
-          <TextField
-            value={price}
-            onChange={hendleInputChange}
-            label="Ціна продукту"
-            name="price"
-            placeholder="введіть ціну продукту"
-            required={true}
-            type="text"
-          />
-          <TextField
+
+          <textarea
             value={description}
             onChange={hendleInputChange}
-            label="Опис продукту"
             name="description"
-            placeholder="введіть опис продукту"
+            placeholder="опис продукту"
             required={true}
             type="text"
+            autoFocus
+            className={s.addDescription}
+          />
+
+          <input
+            value={link}
+            onChange={hendleInputChange}
+            name="link"
+            placeholder="посилання на товар"
+            required={true}
+            type="text"
+            className={s.addLink}
+          />
+
+          <input
+            value={price}
+            onChange={hendleInputChange}
+            name="price"
+            placeholder="Введіть вартість"
+            required={true}
+            type="text"
+            className={s.addPrice}
           />
         </div>
-        <button type="submit" className={s.login}>
-          Submit
+        <button type="submit" className={s.add}>
+          Додати товар
         </button>
       </form>
     </div>

@@ -2,27 +2,26 @@ import { nanoid } from "nanoid";
 import UserMenu from "../../Components/UserMenu/UserMenu";
 import s from "./ProductsPage.module.scss";
 import Modal from "../../Components/Modal/Modal";
+import ChangeForm from "../../Components/ChangeForm/ChangeForm";
 import {
   getProducts,
-  changeProduct,
-  addProduct,
   delProduct,
+  changeProduct,
 } from "../../Shared/Servises/api";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiSolidEdit } from "react-icons/bi";
 import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
-import ChangeForm from "../../Components/ChangeForm/ChangeForm";
+
 import Footer from "../../Components/Footer/Footer";
-// import AddProductForm from "../../Components/AddProductForm/AddProductForm";
 
 const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
-  const [findProduct, setFindProduct] = useState(false);
+  console.log(page);
   console.log(data);
 
   useEffect(() => {
@@ -32,26 +31,29 @@ const ProductsPage = () => {
       setData((prevstate) => [...prevstate, ...data]);
     };
     productsItems();
-  }, [page, findProduct]);
+  }, [page]);
 
+  const productsItems = async () => {
+    const data = await getProducts(page);
+    setData([...data]);
+  };
   const toggleModal = () => {
     setIsShow(!isShow);
     // console.log(isShow);
   };
+
   const findDetails = (event) => {
     const findInfo = data.find((item) => item.id === event.currentTarget.id);
     setSearchInfo(findInfo);
   };
-  const onSubmit = (id, product) => {
-    changeProduct(id, product);
-
-    // setFindProduct(true);
-  };
 
   const deleteProduct = (id) => {
     delProduct(id);
-    setFindProduct(true);
+
     // console.log(id);
+  };
+  const onSubmit = (id, product) => {
+    changeProduct(id, product);
   };
 
   const onClickLoadMore = () => {
@@ -74,7 +76,13 @@ const ProductsPage = () => {
             <div className={s.priceContainer}>
               <p className={s.price}>{price} грн.</p>
               <p className={s.category}>{category}</p>
-              <BiSolidEdit className={s.editProduct} />
+
+              <BiSolidEdit
+                className={s.editProduct}
+                id={id}
+                onClick={toggleModal}
+              />
+
               <FaTrash
                 className={s.deleteProduct}
                 onClick={() => deleteProduct(id)}
@@ -85,6 +93,7 @@ const ProductsPage = () => {
       </li>
     )
   );
+  const { id } = searchInfo;
 
   return (
     <div className={s.bgcolor}>
@@ -98,22 +107,19 @@ const ProductsPage = () => {
           </button>
         </NavLink>
         <Outlet />
-        <h2 className={s.listProductsTitle}>Список товарів</h2>
-        {/* <AddProductForm onSubmit={addToProducts} /> */}
+        <h2 className={s.listProductsTitle} onClick={productsItems}>
+          Список товарів
+        </h2>
+
         <ul className={s.products}>{productItem}</ul>
         <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
           Загурзити ще
         </button>
-        {/* {isShow && (
-        <Modal onClose={toggleModal}>
-          <div className={s.modal}>
-            <img className={s.imageDetails} src={gallery} alt={name} />
-            <p className={s.nameModal}>{name}</p>
-            <p className={s.priceModal}>Ціна: {price} грн.</p>
-          </div>
-          <ChangeForm onSubmit={onSubmit} id={id} toggleModal={toggleModal} />
-        </Modal>
-      )} */}
+        {isShow && (
+          <Modal onClose={toggleModal}>
+            <ChangeForm onSubmit={onSubmit} id={id} toggleModal={toggleModal} />
+          </Modal>
+        )}
       </div>
       <Footer />
     </div>

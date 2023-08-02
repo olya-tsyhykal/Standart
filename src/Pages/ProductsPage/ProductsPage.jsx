@@ -49,7 +49,8 @@ const ProductsPage = () => {
 
   const deleteProduct = (id) => {
     delProduct(id);
-
+    const removeProduct = data.filter((item) => item.id !== id);
+    setData(removeProduct);
     // console.log(id);
   };
   const onSubmit = (id, product) => {

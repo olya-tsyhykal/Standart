@@ -98,7 +98,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
           />
         </div>
         <button type="submit" className={s.add}>
-          Додати товар
+          Змінити товар
         </button>
       </form>
     </div>

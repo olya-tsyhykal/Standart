@@ -341,7 +341,7 @@
 .iconSearch {
   position: absolute;
   top: 9px;
-  left: 70px;
+  left: 79px;
   color: #b9b9b9;
   @media screen and (min-width: $tablet) {
     top: 9px;
@@ -372,7 +372,7 @@
   }
 }
 .filter::placeholder {
-  padding-left: 20px;
+  padding-left: 30px;
 
   transform: translateY(-0.18rem);
   color: #b9b9b9;

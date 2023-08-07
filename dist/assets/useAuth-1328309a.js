@@ -1,1 +1,0 @@
-import{f as e,h as r,i as c,u as a}from"./index-d5fe204f.js";function u(t=e){const s=t===e?r:c(t);return function(){const{store:o}=s();return o}}const i=u();function h(t=e){const s=t===e?i:u(t);return function(){return s().dispatch}}const p=h(),d=({auth:t})=>t.user,x=({auth:t})=>t.isLogin,R=()=>a(x);export{R as a,d as g,p as u};

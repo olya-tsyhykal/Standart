@@ -5,6 +5,8 @@ import { BsFacebook, BsInstagram, BsTelegram } from "react-icons/bs";
 import { FaViber } from "react-icons/fa";
 import { BiCategory, BiSolidPhone } from "react-icons/bi";
 import { FcAbout } from "react-icons/fc";
+import { BsInfoSquare, BsInfoLg } from "react-icons/bs";
+import { GrStatusInfo } from "react-icons/gr";
 import { MdArrowForwardIos } from "react-icons/md";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 import { useEffect } from "react";
@@ -65,7 +67,7 @@ const BurgerMenu = ({ onClose }) => {
               duration={500}
             >
               <div className={s.containerMenu}>
-                <FcAbout className={s.AboutUs} />
+                <BsInfoLg className={s.AboutUs} />
                 <span className={s.navBurgerMenuText}>Про нас</span>
                 <MdArrowForwardIos className={s.arrow} />
               </div>

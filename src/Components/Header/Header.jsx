@@ -3,7 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
-import { BsPerson } from "react-icons/bs";
+import { BsPerson, BsCart2 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
@@ -146,7 +146,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
             <Outlet />
           </div>
           <div className={s.shoppingCart}>
-            <FaShoppingCart
+            <BsCart2
               className={
                 cartOpen
                   ? `${s.shoppingCartButton} ${s.active}`
@@ -165,7 +165,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
         <Modal onClose={toggleModal}>
           <div className={s.modalContent}>
             <div className={s.titleContainer}>
-              <FaShoppingCart className={s.cartIcon} />
+              <BsCart2 className={s.cartIcon} />
               <h2 className={s.title}>Кошик</h2>
             </div>
 

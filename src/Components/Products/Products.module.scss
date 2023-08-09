@@ -337,20 +337,37 @@
 }
 .search {
   position: relative;
+  margin: 0 auto;
+  width: 240px;
+  height: 32px;
+  margin-bottom: 20px;
+  &:focus,
+  &:hover {
+    color: #ffe663;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 480px;
+    height: 44px;
+  }
 }
 .iconSearch {
   position: absolute;
   top: 9px;
-  left: 79px;
+  left: 6%;
   color: #b9b9b9;
-  @media screen and (min-width: $tablet) {
-    top: 9px;
-    left: 150px;
+  &:focus,
+  &:hover {
+    color: #ffe663;
   }
-  @media screen and (min-width: $desktop) {
-    top: 9px;
-    left: 58px;
-  }
+  // @media screen and (min-width: $tablet) {
+  //   top: 9px;
+  //   left: 150px;
+  // }
+  // @media screen and (min-width: $desktop) {
+  //   top: 9px;
+  //   left: 10%;
+  // }
 }
 .filter {
   display: block;
@@ -360,22 +377,24 @@
   padding: 0px 20px;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
 
   border: 1px solid $color-blue;
-  &:focus {
+  border-radius: 0;
+  &:focus,
+  &:hover {
     outline-color: #ffe663;
+    border-color: #ffe663;
   }
   @media screen and (min-width: $tablet) {
     width: 480px;
-    padding: 0px 20px;
+    padding: 0px 45px;
   }
   @media screen and (min-width: $desktop) {
-    margin-left: 50px;
+    padding: 0px 60px;
   }
 }
 .filter::placeholder {
-  padding-left: 30px;
+  padding-left: 10px;
 
   transform: translateY(-0.18rem);
   color: #b9b9b9;

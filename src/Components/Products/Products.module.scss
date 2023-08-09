@@ -356,10 +356,7 @@
   top: 9px;
   left: 6%;
   color: #b9b9b9;
-  &:focus,
-  &:hover {
-    color: #ffe663;
-  }
+
   // @media screen and (min-width: $tablet) {
   //   top: 9px;
   //   left: 150px;
@@ -374,7 +371,7 @@
   margin: 0 auto;
 
   height: 32px;
-  padding: 0px 20px;
+  padding: 0px 40px;
   align-items: center;
   gap: 12px;
 
@@ -387,7 +384,7 @@
   }
   @media screen and (min-width: $tablet) {
     width: 480px;
-    padding: 0px 45px;
+    padding: 0px 50px;
   }
   @media screen and (min-width: $desktop) {
     padding: 0px 60px;

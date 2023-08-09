@@ -363,6 +363,9 @@
   margin-bottom: 20px;
 
   border: 1px solid $color-blue;
+  &:focus {
+    outline-color: #ffe663;
+  }
   @media screen and (min-width: $tablet) {
     width: 480px;
     padding: 0px 20px;

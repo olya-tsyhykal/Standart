@@ -1,8 +1,8 @@
 @import "../../Shared/styles/index";
 
 .title {
-  padding: 45px 0px 37px 12px;
-  width: 250px;
+  padding: 45px 12px 45px 12px;
+  width: 100%;
 
   color: $color-blue;
   font-family: Kreon;
@@ -12,13 +12,13 @@
   line-height: normal;
   text-decoration-line: underline;
   @media screen and (min-width: $tablet) {
-    padding: 88px 0px 40px 40px;
-    width: 425px;
+    padding: 40px;
+    // width: 100%;
     font-size: 36px;
   }
   @media screen and (min-width: $desktop) {
-    padding: 88px 0px 89px 67px;
-    width: 600px;
+    padding: 88px 67px 88px 67px;
+    // width: 600px;
   }
 }
 .promotionContainer {

@@ -228,4 +228,8 @@
 .footerNavogationStandart {
   width: 280px;
   height: 160px;
+  transition: transform 300ms ease;
+  &:hover {
+    transform: scale(1.1);
+  }
 }

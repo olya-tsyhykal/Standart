@@ -116,7 +116,10 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-            <Logo className={s.footerNavogationStandart} />
+            <Logo
+              className={s.footerNavogationStandart}
+              onClick={scrollToTop}
+            />
           </div>
         </div>
         <div className={s.buttomContainer}>

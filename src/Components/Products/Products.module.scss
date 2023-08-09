@@ -338,7 +338,7 @@
 .search {
   position: relative;
   margin: 0 auto;
-  width: 240px;
+  width: 280px;
   height: 32px;
   margin-bottom: 20px;
   &:focus,
@@ -368,12 +368,9 @@
 }
 .filter {
   display: block;
-  margin: 0 auto;
-
   height: 32px;
   padding: 0px 40px;
-  align-items: center;
-  gap: 12px;
+  width: 280px;
 
   border: 1px solid $color-blue;
   border-radius: 0;

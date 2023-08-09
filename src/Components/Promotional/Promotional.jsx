@@ -1,5 +1,5 @@
 import React from "react";
-import Carousel from 'react-bootstrap/Carousel';
+import Carousel from "react-bootstrap/Carousel";
 import s from "./Promotional.module.scss";
 import vudka from "../../Shared/Images/vudka.jpg";
 import motil from "../../Shared/Images/motil.jpg";
@@ -9,8 +9,8 @@ const Promotional = () => {
   return (
     <section id="promotions">
       <h2 className={s.title}>Акційні пропозиції</h2>
-      <Carousel  >
-        <Carousel.Item >
+      <Carousel>
+        <Carousel.Item>
           <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>
@@ -29,7 +29,7 @@ const Promotional = () => {
             <div className={s.promFigure}></div>
           </div>
         </Carousel.Item>
-        <Carousel.Item >
+        <Carousel.Item>
           <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>
@@ -49,7 +49,7 @@ const Promotional = () => {
             <div className={s.promFigure}></div>
           </div>
         </Carousel.Item>
-        <Carousel.Item >
+        <Carousel.Item>
           <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>

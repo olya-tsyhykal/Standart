@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
-import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsPerson, BsCart2 } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -85,6 +84,9 @@ const Header = ({ searchProducts, deleteOrder }) => {
   };
 
   // console.log(searchProducts);
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
 
   return (
     <header>
@@ -96,7 +98,8 @@ const Header = ({ searchProducts, deleteOrder }) => {
             className={s.gamburgerMenu}
             onClick={() => setIsShow(!isShow)}
           />
-          <Logo className={s.logoStandart} />
+
+          <Logo className={s.logoStandart} onClick={scrollToTop} />
         </div>
 
         <ul className={s.nav}>

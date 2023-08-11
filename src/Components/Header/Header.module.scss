@@ -56,6 +56,10 @@ header {
   display: none;
   @media screen and (min-width: $desktop) {
     display: block;
+    transition: transform 300ms ease;
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 }
 .nav {

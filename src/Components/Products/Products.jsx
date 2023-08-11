@@ -63,7 +63,7 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
       </div>
       <ul className={s.products}>{productItem}</ul>
       <button type="button" className={s.loadMore} onClick={onClickLoadVore}>
-        Загрузити ще
+        Завантажити ще
       </button>
       {isShow && (
         <Modal onClose={toggleModal}>

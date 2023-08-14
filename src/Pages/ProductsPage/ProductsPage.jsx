@@ -120,7 +120,7 @@ const ProductsPage = () => {
         </div>
         <ul className={s.products}>{productItem}</ul>
         <button type="button" className={s.loadMore} onClick={onClickLoadMore}>
-          Загурзити ще
+          Завантажити ще
         </button>
         {isShow && (
           <Modal onClose={toggleModal}>

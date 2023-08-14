@@ -15,8 +15,7 @@ const HomePage = () => {
   const [tovar, setTovar] = useState([]);
   const [filteredByCategories, setfilteredByCategories] = useState([]);
   const [page, setPage] = useState(1);
-
-  // console.log(searchProducts);
+  const [stateSum, setStateSum] = useState(0);
 
   useEffect(() => {
     const productsItems = async () => {
@@ -36,11 +35,14 @@ const HomePage = () => {
     );
 
     if (!dublicate) {
-      setSearchProducts([...searchProducts, findProduct]);
+      setSearchProducts((prevstate) => [
+        ...prevstate,
+        { product: findProduct, count: 1 },
+      ]);
     }
   };
   const deleteOrder = (id) => {
-    const delProduct = searchProducts.filter((item) => item.id !== id);
+    const delProduct = searchProducts.filter((item) => item.product.id !== id);
     setSearchProducts(delProduct);
   };
   const chooseCategory = (category) => {
@@ -58,7 +60,13 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header searchProducts={searchProducts} deleteOrder={deleteOrder} />
+      <Header
+        searchProducts={searchProducts}
+        deleteOrder={deleteOrder}
+        stateSum={stateSum}
+        setStateSum={setStateSum}
+        setSearchProducts={setSearchProducts}
+      />
       <Hero />
       <AboutUs />
       <Promotional />

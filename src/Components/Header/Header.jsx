@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { nanoid } from "nanoid";
 import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
@@ -15,30 +16,25 @@ import "react-toastify/dist/ReactToastify.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { Link, animateScroll as scroll } from "react-scroll";
 
-const Header = ({ searchProducts, deleteOrder }) => {
-  const [stateSum, setStateSum] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-  // console.log("quantity:", quantity);
-
-  useEffect(() => {
-    setStateSum(
-      searchProducts.reduce((acc, el) => {
-        return acc + el.price * quantity;
-      }, 0)
-    );
-  }, [searchProducts]);
-
-  // console.log(stateSum);
+const Header = ({
+  searchProducts,
+  deleteOrder,
+  stateSum,
+  setStateSum,
+  setSearchProducts,
+}) => {
+  const sum = searchProducts.reduce((acc, el) => {
+    return acc + el.product.price * el.count;
+  }, 0);
 
   const [cartOpen, setCartOpen] = useState(false);
   const [isShow, setIsShow] = useState(false);
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  // console.log(searchProducts);
 
-  const productItem = searchProducts?.map((item) => item.name);
-  // console.log(productItem);
+  const productItem = searchProducts?.map((item) => item.product.name);
+
   const hendleInputChange = (event) => {
     const { name, value } = event.currentTarget;
 
@@ -83,7 +79,6 @@ const Header = ({ searchProducts, deleteOrder }) => {
     setCartOpen(!cartOpen);
   };
 
-  // console.log(searchProducts);
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
@@ -185,11 +180,13 @@ const Header = ({ searchProducts, deleteOrder }) => {
                 <ul>
                   {searchProducts?.map((item) => (
                     <Order
-                      key={item.id}
-                      item={item}
+                      key={nanoid()}
+                      item={item.product}
+                      count={item.count}
                       deleteOrder={deleteOrder}
                       setStateSum={setStateSum}
-                      setQuantity={setQuantity}
+                      setSearchProducts={setSearchProducts}
+                      searchProducts={searchProducts}
                     />
                   ))}
                 </ul>
@@ -215,7 +212,7 @@ const Header = ({ searchProducts, deleteOrder }) => {
                     </div>
                     <div className={s.payContainer}>
                       <p className={s.sum}>
-                        До сплати: <span>{stateSum.toFixed(2)} грн</span>
+                        До сплати: <span>{sum.toFixed(2)} грн</span>
                       </p>
                       <button type="submit" className={s.buttonOrder}>
                         Замовити

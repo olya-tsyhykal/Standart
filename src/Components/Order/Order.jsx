@@ -1,30 +1,39 @@
 import s from "./Order.module.scss";
 import { FaTrash } from "react-icons/fa";
-import { useEffect, useState } from "react";
 
-const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
-  const [count, setCount] = useState(1);
-
-  useEffect(() => {
-    setQuantity(count);
-  }, [count]);
-
+const Order = ({
+  item,
+  deleteOrder,
+  setSearchProducts,
+  searchProducts,
+  count,
+}) => {
   const increment = () => {
-    setCount((prevstate) => prevstate + 1);
-    // setQuantity(count);
-    setStateSum((prevstate) => prevstate + item.price);
+    setSearchProducts(
+      searchProducts.map((el) => {
+        if (el.product.id === item.id) {
+          el.count += 1;
+        }
+        return el;
+      })
+    );
   };
-  const dicrement = () => {
-    if (count <= 1) {
-      setCount(1);
 
+  const dicrement = () => {
+    const itemProd = searchProducts.find((el) => el.product.id === item.id);
+    if (itemProd.count <= 1) {
       return;
     }
-    setCount((prevstate) => prevstate - 1);
-    // setQuantity(count);
-    setStateSum((prevstate) => prevstate - item.price);
+    setSearchProducts(
+      searchProducts.map((el) => {
+        if (el.product.id === item.id) {
+          el.count -= 1;
+        }
+        return el;
+      })
+    );
   };
-  console.log("count:", count);
+
   return (
     <li className={s.productItem} id={item.id}>
       <div className={s.imageNameContainer}>
@@ -45,9 +54,6 @@ const Order = ({ item, deleteOrder, setStateSum, setQuantity }) => {
         <FaTrash
           className={s.del}
           onClick={() => {
-            setQuantity(count);
-            setStateSum((prevstate) => prevstate - item.price * count);
-
             deleteOrder(item.id);
           }}
         />

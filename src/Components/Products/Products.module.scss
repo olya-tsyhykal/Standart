@@ -246,6 +246,8 @@
 .priceDetailsDesktop span {
   @media screen and (min-width: $desktop) {
     font-weight: 500;
+    margin-left: 5px;
+    margin-right: 5px;
   }
 }
 .addDetailsDesktop {
@@ -259,12 +261,22 @@
   align-self: stretch;
   background: var(--yellow-btn, #ffe663);
 
+  cursor: pointer;
+
   color: var(--dark-main, #5b5b5b);
   font-family: Kreon;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  transition: background, font-weight 250ms ease;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  &:focus {
+    background: $color-brand_yellow;
+    transform: scale(1.1) translateY(-5px);
+    font-weight: 600;
+  }
 }
 .priceDetails {
   color: #0b6ea5;

@@ -9,7 +9,7 @@ import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 
-import { fields } from "../TextField/fields";
+
 import { sendMassege } from "../../Shared/Servises/tgAPI";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -57,7 +57,7 @@ const Header = ({
     messege += `<b>Ім'я замовника: ${name}</b>\n`;
     messege += `<b>Телефон замовника: ${number}</b>\n`;
     messege += `<b>Список товарів: ${productItem}</b>\n`;
-    messege += `<b>Загальна сума замовлення: ${stateSum} грн.</b>\n`;
+    messege += `<b>Загальна сума замовлення: ${sum} грн.</b>\n`;
 
     sendMassege(messege);
 
@@ -197,17 +197,28 @@ const Header = ({
                 <form id="tg" onSubmit={hendleSubmit}>
                   <div className={s.formContainer}>
                     <div className={s.cartForm}>
+
                       <input
                         value={name}
                         onChange={hendleInputChange}
                         className={s.inputForm}
-                        {...fields.name}
+                        name="name"
+                        placeholder="Ім'я"
+                        required
+                        type="text"
+                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                       />
                       <input
                         value={number}
                         onChange={hendleInputChange}
                         className={s.inputForm}
-                        {...fields.number}
+                        name="number"
+                        placeholder="+38 (000) 000 00 00"
+                        required
+                        type="tel"
+                        pattern="^((8|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
+                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                       />
                     </div>
                     <div className={s.payContainer}>

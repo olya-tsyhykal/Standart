@@ -31,3 +31,30 @@
     height: 72px;
   }
 }
+.formText {
+  display: none;
+}
+.formInput:focus:valid ~ .formText {
+  display: none;
+}
+
+.formInput:focus ~ .formText {
+  display: block;
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: 0.5s;
+  //   font-family: 'Verdana';
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.21;
+  letter-spacing: 0.04em;
+  color:#9b9faa;;
+  top: 40px;
+  font-size: 10px;
+  color: red;
+}

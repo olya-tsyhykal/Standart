@@ -41,16 +41,28 @@ const LoginForm = ({ onSubmit }) => {
   return (
     <form onSubmit={hendleSubmit} className={s.loginForm}>
       <div className={s.form}>
+      
         <TextField
           value={email}
           onChange={hendleInputChange}
           {...fields.email}
+          className={s.formInput}
         />
+        <div className={s.formText}>
+          введіть корректний emil. Наприклад - polupan@mail.com
+        </div>
+        
         <TextField
           value={password}
           onChange={hendleInputChange}
           {...fields.password}
+          className={s.formInput}
         />
+        <div className={s.formText}>
+          cannot be less than 8 characters and must contain at least one number,
+          one lowercase, and one uppercase Latin letter. For example -
+          Butterfly01
+        </div>
       </div>
       <button type="submit" className={s.button}>
         Увійти в особистий кабінет

@@ -31,7 +31,7 @@ const HomePage = () => {
       (item) => item.id === event.currentTarget.id
     );
     const dublicate = searchProducts.find(
-      (element) => element.id === findProduct.id
+      (element) => element.product.id === findProduct.id
     );
 
     if (!dublicate) {

@@ -50,10 +50,10 @@
   margin-bottom: 20px;
   @media screen and (min-width: $tablet) {
     margin-bottom: 0px;
-    margin-left: 40px;
+    margin-left: 30px;
   }
   @media screen and (min-width: $desktop) {
-    margin-left: 200px;
+    margin-left: 190px;
   }
 }
 .incrementDecrementContainer {
@@ -78,6 +78,7 @@
   line-height: 150%; /* 30px */
 }
 .price {
+  width: 100px;
   color: #0b6ea5;
   text-align: center;
   font-family: Kreon;
@@ -103,7 +104,7 @@
     color: #fad308;
   }
   @media screen and (min-width: $tablet) {
-    margin-left: 70px;
+    margin-left: 50px;
   }
   @media screen and (min-width: $desktop) {
     margin-left: 50px;

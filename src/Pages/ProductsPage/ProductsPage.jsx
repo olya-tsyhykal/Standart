@@ -15,9 +15,11 @@ import { useState, useEffect } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 
 import Footer from "../../Components/Footer/Footer";
+import ModalDelProduct from "../../Components/ModalDelProduct/ModalDelProduct";
 
 const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
+  const [isShowDel, setIsShowDel] = useState(false);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
@@ -39,6 +41,10 @@ const ProductsPage = () => {
   };
   const toggleModal = () => {
     setIsShow(!isShow);
+    // console.log(isShow);
+  };
+  const toggleModalDel = () => {
+    setIsShowDel(!isShowDel);
     // console.log(isShow);
   };
 
@@ -86,7 +92,8 @@ const ProductsPage = () => {
 
               <FaTrash
                 className={s.deleteProduct}
-                onClick={() => deleteProduct(id)}
+                onClick={toggleModalDel}
+                // onClick={() => deleteProduct(id)}
               />
             </div>
           </div>
@@ -126,6 +133,9 @@ const ProductsPage = () => {
           <Modal onClose={toggleModal}>
             <ChangeForm onSubmit={onSubmit} id={id} toggleModal={toggleModal} />
           </Modal>
+        )}
+        {isShowDel && (
+          <ModalDelProduct onClose={toggleModalDel} deleteProduct={deleteProduct} id={id}/>
         )}
       </div>
       <Footer />

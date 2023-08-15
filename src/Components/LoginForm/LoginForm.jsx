@@ -56,7 +56,7 @@ const LoginForm = ({ onSubmit }) => {
             Email
           </label>
           <p className={s.formText}>
-            *введіть корректний emil. Наприклад - barbos@gmail.com
+            *введіть коректний emil. Наприклад - barbos@gmail.com
           </p>
         </div>
         <div className={s.formItem}>

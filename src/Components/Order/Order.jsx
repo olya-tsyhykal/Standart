@@ -50,7 +50,7 @@ const Order = ({
             -
           </div>
         </div>
-        <p className={s.price}>{item.price * count} грн</p>
+        <p className={s.price}>{((item.price * count).toFixed(2))} грн</p>
         <FaTrash
           className={s.del}
           onClick={() => {

@@ -45,7 +45,7 @@ const AddProductForm = ({ onSubmit }) => {
     const data = {
       name,
       gallery: link,
-      price: Number.parseFloat(price),
+      price: Number.parseFloat(price).toFixed(2),
       description,
       country,
       category,

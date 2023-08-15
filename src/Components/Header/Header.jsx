@@ -19,7 +19,6 @@ import { Link, animateScroll as scroll } from "react-scroll";
 const Header = ({
   searchProducts,
   deleteOrder,
-  stateSum,
   setStateSum,
   setSearchProducts,
 }) => {

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from "react-toastify";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import Products from "../../Components/Products/Products";
@@ -40,6 +41,16 @@ const HomePage = () => {
         { product: findProduct, count: 1 },
       ]);
     }
+    toast.info('Дякуємо! Товар доданий до корзини!', {
+      position: "top-center",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   };
   const deleteOrder = (id) => {
     const delProduct = searchProducts.filter((item) => item.product.id !== id);
@@ -60,6 +71,18 @@ const HomePage = () => {
 
   return (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
       <Header
         searchProducts={searchProducts}
         deleteOrder={deleteOrder}

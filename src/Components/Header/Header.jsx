@@ -9,12 +9,12 @@ import Modal from "../Modal/Modal";
 import Order from "../Order/Order";
 import { ReactComponent as Logo } from "../../Shared/Images/Logo svg 1.svg";
 
-
 import { sendMassege } from "../../Shared/Servises/tgAPI";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BurgerMenu from "../BurgerMenu/BurgerMenu";
 import { Link, animateScroll as scroll } from "react-scroll";
+import { useForm } from "react-hook-form";
 
 const Header = ({
   searchProducts,
@@ -31,6 +31,20 @@ const Header = ({
 
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onBlur",
+  });
+
+  // console.log("Name:", name);
+  // console.log("Number:", number);
+  // console.log(watch("name"));
 
   const productItem = searchProducts?.map((item) => item.product.name);
 
@@ -49,8 +63,9 @@ const Header = ({
     }
   };
 
-  const hendleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmitForm = (event) => {
+    // event.preventDefault();
+
 
     let messege = `<b>Замовлення з сайту!</b>\n`;
     messege += `<b>Ім'я замовника: ${name}</b>\n`;
@@ -61,6 +76,7 @@ const Header = ({
     sendMassege(messege);
 
     resetForm();
+    reset();
     toggleModal();
     toast.success("Дякуємо за замовлення, ми Вам перетелефонуємо !", {
       position: toast.POSITION.TOP_RIGHT,
@@ -193,38 +209,77 @@ const Header = ({
                 <p className={s.contactsTitle}>
                   Вкажіть контактні данні для оформлення
                 </p>
-                <form id="tg" onSubmit={hendleSubmit}>
+                <form id="tg" onSubmit={handleSubmit(handleSubmitForm)}>
                   <div className={s.formContainer}>
                     <div className={s.cartForm}>
-
-                      <input
-                        value={name}
-                        onChange={hendleInputChange}
-                        className={s.inputForm}
-                        name="name"
-                        placeholder="Ім'я"
-                        required
-                        type="text"
-                        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                      />
-                      <input
-                        value={number}
-                        onChange={hendleInputChange}
-                        className={s.inputForm}
-                        name="number"
-                        placeholder="+38 (000) 000 00 00"
-                        required
-                        type="tel"
-                        pattern="^((8|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$"
-                        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                      />
+                      <label className={s.label}>
+                        <input
+                          {...register("name", {
+                            required: "*Поле обов'язкове для заповнення",
+                            maxLength: {
+                              value: 20,
+                              message: "Максимальна довжина 20 символів"
+                            },
+                            minLength: {
+                              value: 3,
+                              message: "Мінімальна довжина 3 символи"
+                            },
+                            pattern: /^\S+$/,
+                          })}
+                          value={name}
+                          onChange={hendleInputChange}
+                          className={s.inputForm}
+                          name="name"
+                          placeholder="Ім'я"
+                          type="text"
+                        />
+                        <div className={s.errors}>
+                          {errors?.name && (
+                            <p>
+                              {errors?.name?.message ||
+                                "*Не повинен містити пробілів, Мінімальна довжина 3 символи та максимальна 20"}
+                            </p>
+                          )}
+                        </div>
+                      </label>
+                      <label className={s.label}>
+                        <input
+                          {...register("number", {
+                            required: "*Поле обов'язкове для заповнення",
+                            maxLength: {
+                              value: 19,
+                              message: "Максимальна довжина 19 символів"
+                            },
+                            minLength: {
+                              value: 13,
+                              message: "Мінімальна довжина 13 символи"
+                            },
+                            pattern:
+                              /^[\+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/,
+                          })}
+                          value={number}
+                          onChange={hendleInputChange}
+                          className={s.inputForm}
+                          name="number"
+                          placeholder="+38 (000) 000 00 00"
+                          type="tel"
+                        />
+                        <div className={s.errors}>
+                          {errors?.number && (
+                            <p>
+                              {errors?.number?.message ||
+                                "*Введіть номер телефону в правильному форматі, наприклад +38 (066) 666 66 66"}
+                            </p>
+                          )}
+                        </div>
+                      </label>
                     </div>
+
                     <div className={s.payContainer}>
                       <p className={s.sum}>
                         До сплати: <span>{sum.toFixed(2)} грн</span>
                       </p>
-                      <button type="submit" className={s.buttonOrder}>
+                      <button type="submit" className={isValid ? s.buttonOrder: `${s.buttonOrder} ${s.buttonOrderDisabled}`} disabled={!isValid}>
                         Замовити
                       </button>
                     </div>

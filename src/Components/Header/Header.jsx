@@ -66,7 +66,6 @@ const Header = ({
   const handleSubmitForm = (event) => {
     // event.preventDefault();
 
-
     let messege = `<b>Замовлення з сайту!</b>\n`;
     messege += `<b>Ім'я замовника: ${name}</b>\n`;
     messege += `<b>Телефон замовника: ${number}</b>\n`;
@@ -78,9 +77,16 @@ const Header = ({
     resetForm();
     reset();
     toggleModal();
-    toast.success("Дякуємо за замовлення, ми Вам перетелефонуємо !", {
-      position: toast.POSITION.TOP_RIGHT,
-    });
+    toast.success('Дякуємо за замовлення, ми Вам перетелефонуємо!', {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      });
   };
 
   const resetForm = () => {
@@ -100,7 +106,8 @@ const Header = ({
 
   return (
     <header>
-      <ToastContainer />
+      <ToastContainer/>
+
       <div className={s.header}>
         {isShow && <BurgerMenu onClose={toggleBurgerMenu} />}
         <div className={s.logo}>
@@ -218,11 +225,11 @@ const Header = ({
                             required: "*Поле обов'язкове для заповнення",
                             maxLength: {
                               value: 20,
-                              message: "Максимальна довжина 20 символів"
+                              message: "Максимальна довжина 20 символів",
                             },
                             minLength: {
                               value: 3,
-                              message: "Мінімальна довжина 3 символи"
+                              message: "Мінімальна довжина 3 символи",
                             },
                             pattern: /^\S+$/,
                           })}
@@ -248,11 +255,11 @@ const Header = ({
                             required: "*Поле обов'язкове для заповнення",
                             maxLength: {
                               value: 19,
-                              message: "Максимальна довжина 19 символів"
+                              message: "Максимальна довжина 19 символів",
                             },
                             minLength: {
                               value: 13,
-                              message: "Мінімальна довжина 13 символи"
+                              message: "Мінімальна довжина 13 символи",
                             },
                             pattern:
                               /^[\+]?3?[\s]?8?[\s]?\(?0\d{2}?\)?[\s]?\d{3}[\s|-]?\d{2}[\s|-]?\d{2}$/,
@@ -279,7 +286,15 @@ const Header = ({
                       <p className={s.sum}>
                         До сплати: <span>{sum.toFixed(2)} грн</span>
                       </p>
-                      <button type="submit" className={isValid ? s.buttonOrder: `${s.buttonOrder} ${s.buttonOrderDisabled}`} disabled={!isValid}>
+                      <button
+                        type="submit"
+                        className={
+                          isValid
+                            ? s.buttonOrder
+                            : `${s.buttonOrder} ${s.buttonOrderDisabled}`
+                        }
+                        disabled={!isValid}
+                      >
                         Замовити
                       </button>
                     </div>

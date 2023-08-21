@@ -15,22 +15,23 @@
   background-color: #f6f6f6;
   color: #b9b9b9;
   position: absolute;
-  top: 50%;
+  top: calc(50% + 45px);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 5;
 
   width: 320px;
-  height: 640px;
+  height: 100%;
   padding: 8px;
   @media screen and (min-width: $tablet) {
     width: 768px;
-    min-height: 535px;
+  
     padding: 20px;
+    top: calc(50% + 60px);
   }
   @media screen and (min-width: $desktop) {
     width: 1080px;
-    height: 720px;
+    top: calc(50% + 95px);
     padding: 40px;
   }
 

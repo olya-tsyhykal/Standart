@@ -342,6 +342,9 @@
   color: #5b5b5b;
   width: 24px;
   height: 24px;
+
+  cursor: pointer;
+  
   transition: color 500ms ease;
   &:hover {
     color: #fad308;
@@ -361,6 +364,8 @@
   color: #5b5b5b;
   width: 24px;
   height: 24px;
+
+  cursor: pointer;
   transition: color 500ms ease;
   &:hover {
     color: #fad308;

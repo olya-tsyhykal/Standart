@@ -38,6 +38,7 @@
   }
 }
 .promCard {
+  z-index: -1;
   @media screen and (min-width: $tablet) {
     display: flex;
     flex-direction: row-reverse;

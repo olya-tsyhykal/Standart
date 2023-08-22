@@ -16,14 +16,18 @@ import { Outlet, NavLink } from "react-router-dom";
 
 import Footer from "../../Components/Footer/Footer";
 import ModalDelProduct from "../../Components/ModalDelProduct/ModalDelProduct";
+import AddProductForm from "../../Components/AddProductForm/AddProductForm";
+import { addProduct } from "../../Shared/Servises/api";
 
 const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
   const [isShowDel, setIsShowDel] = useState(false);
+  const [isShowAdd, setIsShowAdd] = useState(false);
+  const [addData, setAddData] = useState([]);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
-  console.log(page);
+  // console.log(page);
   console.log(data);
 
   useEffect(() => {
@@ -47,6 +51,10 @@ const ProductsPage = () => {
     setIsShowDel(!isShowDel);
     // console.log(isShow);
   };
+  const toggleModalAdd = () => {
+    setIsShowAdd(!isShowAdd);
+    // console.log(isShowAdd);
+  };
 
   const findDetails = (event) => {
     const findInfo = data.find((item) => item.id === event.currentTarget.id);
@@ -65,6 +73,13 @@ const ProductsPage = () => {
 
   const onClickLoadMore = () => {
     setPage((prevPage) => prevPage + 1);
+  };
+  const addToProducts = (product) => {
+    addProduct(product);
+    
+    setData(prevstate => [...prevstate, addData]);
+    console.log(product);
+   
   };
 
   const productItem = data?.map(
@@ -108,13 +123,18 @@ const ProductsPage = () => {
       <UserMenu />
       <div className={s.bgContainer}>
         <h1 className={s.title}>Додавайте товари та редагуйте асортимент</h1>
-        <NavLink to="/add">
-          <button type="button" className={s.addProductButton}>
+        {/* <NavLink to="/add"> */}
+          <button type="button" className={s.addProductButton} onClick={toggleModalAdd}>
             <AiOutlinePlusCircle className={s.plusButton} />
             <span>Додати новий товар</span>
           </button>
-        </NavLink>
-        <Outlet />
+          {isShowAdd && (
+          <Modal onClose={toggleModalAdd}>
+           <AddProductForm onSubmit={addToProducts} toggleModal={toggleModalAdd} setAddData={setAddData}/>
+          </Modal>
+        )}
+        {/* </NavLink> */}
+        {/* <Outlet /> */}
         <h2 className={s.listProductsTitle} onClick={productsItems}>
           Список товарів
         </h2>

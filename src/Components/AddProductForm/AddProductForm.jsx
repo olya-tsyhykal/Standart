@@ -1,15 +1,15 @@
 import { useState } from "react";
-import TextField from "../TextField/TextField";
 import s from "./AddProductForm.module.scss";
+import { nanoid } from "nanoid";
 
-const AddProductForm = ({ onSubmit }) => {
+const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
   const categories = [
     "Виберіть категорію...",
     "Товари для дому",
     "Все для прибирання",
     "Товари для риболовлі",
   ];
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("Товари для дому");
   const [name, setName] = useState("");
   const [link, setLink] = useState("");
   const [price, setPrice] = useState("");
@@ -50,10 +50,20 @@ const AddProductForm = ({ onSubmit }) => {
       country,
       category,
     };
+    setAddData({
+      id: nanoid(),
+      name,
+      gallery: link,
+      price: Number.parseFloat(price).toFixed(2),
+      description,
+      country,
+      category,
+    });
     // console.log(data);
     onSubmit(data);
 
     resetForm();
+    toggleModal();
   };
 
   const resetForm = () => {
@@ -67,7 +77,7 @@ const AddProductForm = ({ onSubmit }) => {
 
   const optionsCategories = categories.map((category, index) => {
     return (
-      <option key={index} value={category}>
+      <option key={index} value={category} selected="">
         {category}
       </option>
     );
@@ -82,6 +92,7 @@ const AddProductForm = ({ onSubmit }) => {
             value={category}
             onChange={(event) => setCategory(event.target.value)}
             className={s.select}
+            required
           >
             {optionsCategories}
           </select>
@@ -91,7 +102,7 @@ const AddProductForm = ({ onSubmit }) => {
           value={name}
           onChange={hendleInputChange}
           name="name"
-          placeholder="назва товару"
+          placeholder="Введіть назву товару"
           required={true}
           type="text"
           className={s.addName}
@@ -101,7 +112,7 @@ const AddProductForm = ({ onSubmit }) => {
           value={description}
           onChange={hendleInputChange}
           name="description"
-          placeholder="опис продукту"
+          placeholder="Введіть опис товару"
           required={true}
           type="text"
           autoFocus
@@ -112,7 +123,7 @@ const AddProductForm = ({ onSubmit }) => {
           value={link}
           onChange={hendleInputChange}
           name="link"
-          placeholder="посилання на товар"
+          placeholder="Введіть посилання на товар"
           required={true}
           type="text"
           className={s.addLink}

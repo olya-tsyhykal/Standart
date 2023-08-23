@@ -60,7 +60,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
             value={name}
             onChange={hendleInputChange}
             name="name"
-            placeholder="назва товару"
+            placeholder="Введіть назву товару"
             required={true}
             type="text"
             className={s.addName}
@@ -70,7 +70,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
             value={description}
             onChange={hendleInputChange}
             name="description"
-            placeholder="опис продукту"
+            placeholder="Введіть опис товару"
             required={true}
             type="text"
             autoFocus
@@ -81,7 +81,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
             value={link}
             onChange={hendleInputChange}
             name="link"
-            placeholder="посилання на товар"
+            placeholder="Введіть посилання на товар"
             required={true}
             type="text"
             className={s.addLink}

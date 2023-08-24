@@ -18,24 +18,20 @@
   transform: translate(-50%, -50%);
   width: 300px;
   height: 200px;
-  background-image: linear-gradient(
-    to bottom,
-    #2b76a0,
-    #009ab1,
-    #00ba92,
-    #7bcf52,
-    #fad308
-  );
+  background:  #F6F6F6;
+  border-radius: 5px;
 }
 .title {
-  color: #fad308;
+  overflow: hidden;
   text-align: center;
-  font-family: Kreon;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: 1.44px;
+color: #0B6EA5;
+text-overflow: ellipsis;
+font-family: Kreon;
+font-size: 20px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+margin-top: 15px;
 
   
 

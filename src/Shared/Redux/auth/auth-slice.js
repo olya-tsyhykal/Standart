@@ -46,6 +46,8 @@ const authSlice = createSlice({
       state.isLoading = false;
       state.error = payload;
     });
+
   },
 });
+export const {currentUser} = authSlice.actions;
 export default authSlice.reducer;

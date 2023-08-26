@@ -15,3 +15,20 @@ export const login = async ({ email, password }) => {
 export const logout = async () => {
   await signOut(auth);
 };
+
+export const userAuth = async ({ userIsAuth, setUserIsAuth }) => {
+  try {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUserIsAuth({
+          uid: user.uid,
+          userName: user.displayName,
+          email: user.email,
+          photoUrl: user.photoURL,
+        });
+      }
+    });
+
+    return userIsAuth;
+  } catch (error) {}
+};

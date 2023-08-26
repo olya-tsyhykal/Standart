@@ -4,6 +4,9 @@ import { lazy, Suspense } from "react";
 import PrivateRoute from "./PrivateRoutes";
 import Loading from "../Loading/Loading";
 
+
+
+
 const HomePage = lazy(() => import("../../Pages/HomePage/HomePage"));
 const LoginPage = lazy(() => import("../../Pages/LoginPage/LoginPage"));
 const ProductsPage = lazy(() =>
@@ -15,6 +18,8 @@ const NotFoundPage = lazy(() =>
 const AddPage = lazy(() => import("../../Pages/AddPage/AddPage"));
 
 const UserRoutes = () => {
+  
+  
   return (
     <Suspense fallback={<Loading />}>
       <Routes>

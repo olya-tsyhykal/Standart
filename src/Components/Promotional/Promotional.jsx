@@ -22,15 +22,16 @@ const Promotional = () => {
         autoplay={{
           delay: 2000,
           pauseOnMouseEnter: true,
-          disableOnInteraction: false,
+          // disableOnInteraction: false,
         }}
-        style={{
-          // "--swiper-pagination-color": "#0b6ea5",
-          // "--swiper-pagination-bullet-inactive-color": "#999999",
-          // "--swiper-pagination-bullet-inactive-opacity": "1",
-          // "--swiper-pagination-bullet-size": "16px",
-          // "--swiper-pagination-bullet-horizontal-gap": "6px"
-        }}
+        loop={true}
+        // style={{
+        //   "--swiper-pagination-color": "#0b6ea5",
+        //   "--swiper-pagination-bullet-inactive-color": "#999999",
+        //   "--swiper-pagination-bullet-inactive-opacity": "1",
+        //   "--swiper-pagination-bullet-size": "16px",
+        //   "--swiper-pagination-bullet-horizontal-gap": "6px"
+        // }}
       >
         <SwiperSlide>
         <div className={s.promotionContainer}>

@@ -9,7 +9,7 @@
   @media screen and (min-width: $tablet) {
     height: 497px;
   }
-  @media screen and (min-width: $tablet) {
+  @media screen and (min-width: $desktop) {
     height: 800px;
   }
   background-size: cover;
@@ -24,7 +24,7 @@
   }
 }
 .banerContent {
-  display: none;
+  // display: none;
 
   @media screen and (min-width: $tablet) {
     display: block;
@@ -37,7 +37,7 @@
   }
 }
 .title {
-  margin-top: 41px;
+ padding-top: 41px;
   margin-bottom: 9px;
   text-align: center;
 
@@ -61,7 +61,7 @@
 }
 
 .slogan {
-  color: $bg-color-blue-light;
+  color: $color-brand_yellow;
   font-family: Istok Web;
   font-size: 19px;
   font-style: normal;
@@ -90,9 +90,13 @@
 
   text-align: center;
 
-  color: #0f0e0e;
+  // color: #0f0e0e;
+  color: #fff;
   font-family: Istok Web;
   font-size: 16px;
+  font-style: normal;
+  // font-weight: 700;
+  line-height: normal;
   margin-bottom: 15px;
   @media screen and (min-width: $tablet) {
     font-size: 24px;
@@ -109,7 +113,5 @@
     width: 637px;
     height: 105px;
   }
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  
 }

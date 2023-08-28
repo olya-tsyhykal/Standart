@@ -1,17 +1,39 @@
 import React from "react";
-import Carousel from "react-bootstrap/Carousel";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import s from "./Promotional.module.scss";
 import vudka from "../../Shared/Images/vudka.jpg";
 import motil from "../../Shared/Images/motil.jpg";
 import oparish from "../../Shared/Images/oparish.jpg";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
 
 const Promotional = () => {
   return (
     <section id="promotions">
       <h2 className={s.title}>Акційні пропозиції</h2>
-      <Carousel>
-        <Carousel.Item>
-          <div className={s.promotionContainer}>
+      <Swiper
+        navigation={true}
+        modules={[Navigation, Autoplay, Pagination]}
+        pagination={{ clickable: true }}
+        centeredSlides={true}
+        className="mySwiper"
+        autoplay={{
+          delay: 2000,
+          pauseOnMouseEnter: true,
+          disableOnInteraction: false,
+        }}
+        style={{
+          // "--swiper-pagination-color": "#0b6ea5",
+          // "--swiper-pagination-bullet-inactive-color": "#999999",
+          // "--swiper-pagination-bullet-inactive-opacity": "1",
+          // "--swiper-pagination-bullet-size": "16px",
+          // "--swiper-pagination-bullet-horizontal-gap": "6px"
+        }}
+      >
+        <SwiperSlide>
+        <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>
               <img src={vudka} alt="fishing rod" className={s.promotionFoto} />
@@ -28,9 +50,9 @@ const Promotional = () => {
             </div>
             <div className={s.promFigure}></div>
           </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className={s.promotionContainer}>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>
               <img src={motil} alt="motil" className={s.promotionFoto} />
@@ -48,9 +70,9 @@ const Promotional = () => {
             </div>
             <div className={s.promFigure}></div>
           </div>
-        </Carousel.Item>
-        <Carousel.Item>
-          <div className={s.promotionContainer}>
+        </SwiperSlide>
+        <SwiperSlide>
+        <div className={s.promotionContainer}>
             <h3 className={s.promotionTitle}>ПРОПОЗИЦІЯ МІСЯЦЯ</h3>
             <div className={s.promCard}>
               <img src={oparish} alt="oparish" className={s.promotionFoto} />
@@ -67,8 +89,8 @@ const Promotional = () => {
             </div>
             <div className={s.promFigure}></div>
           </div>
-        </Carousel.Item>
-      </Carousel>
+        </SwiperSlide>
+        </Swiper>
     </section>
   );
 };

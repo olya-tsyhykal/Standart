@@ -1,5 +1,6 @@
 @import "../../Shared//styles/index";
 
+
 .title {
   padding: 45px 12px 45px 12px;
   width: 100%;
@@ -109,10 +110,17 @@
 .googleMap {
   width: 100%;
   border: 0;
+  @include media-query(tablet) {
+    margin-left: 80px;
+    padding-bottom: 40px;
+  }
 
   @media screen and (min-width: $desktop) {
     width: 578px;
     height: 434px;
-    margin-left: -100px;
+    margin-left: -150px;
   }
+}
+.map {
+  background-color: #fff;
 }

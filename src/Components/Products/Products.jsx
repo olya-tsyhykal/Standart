@@ -36,11 +36,14 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
           onClick={findDetails}
         />
       </div>
+      
       <p className={s.name}>{name}</p>
+      
       <b className={s.price}>{price} грн</b>
       <div className={s.add_to_card} onClick={findIdProduct} id={id}>
         Додати
       </div>
+      
     </li>
   ));
   const { id, gallery, name, description, price } = searchInfo;
@@ -77,13 +80,14 @@ const Products = ({ data, findIdProduct, onClickLoadVore, chooseCategory }) => {
               <p className={s.description}>{description}</p>
               <div className={s.priceContainer}>
                 <img className={s.imageDetails} src={gallery} alt={name} />
-
+                
                 <p className={s.priceDetails}>
                   Вартість: <span>{price}</span> грн
                 </p>
                 <div className={s.addDetails} onClick={findIdProduct} id={id}>
                   Додати
                 </div>
+                
                 <div className={s.priceDetailsDesktopContainer}>
                   <p className={s.priceDetailsDesktop}>
                     Вартість:<span> {price}</span> грн

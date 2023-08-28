@@ -83,6 +83,9 @@
   }
 }
 .price {
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
   color: $color-blue;
   font-family: Kreon;
   font-size: 24px;
@@ -215,6 +218,10 @@
     width: 336px;
     height: 438px;
   }
+}
+.priseBox {
+  display: flex;
+  align-items: center;
 }
 .priceContainer {
   @media screen and (min-width: $tablet) {

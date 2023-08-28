@@ -66,7 +66,7 @@ const BurgerMenu = ({ onClose }) => {
               offset={-70}
               duration={500}
             >
-              <div className={s.containerMenu}>
+              <div className={s.containerMenu} onClick={onClose}>
                 <BsInfoLg className={s.AboutUs} />
                 <span className={s.navBurgerMenuText}>Про нас</span>
                 <MdArrowForwardIos className={s.arrow} />
@@ -82,7 +82,7 @@ const BurgerMenu = ({ onClose }) => {
               offset={-70}
               duration={500}
             >
-              <div className={s.containerMenu}>
+              <div className={s.containerMenu} onClick={onClose}>
                 <BiCategory className={s.catalog} />
                 <span className={s.navBurgerMenuText}>Каталог товарів</span>
                 <MdArrowForwardIos className={s.arrow} />
@@ -98,7 +98,7 @@ const BurgerMenu = ({ onClose }) => {
               offset={-70}
               duration={500}
             >
-              <div className={s.containerMenu}>
+              <div className={s.containerMenu} onClick={onClose}>
                 <BiSolidPhone className={s.phone} />
                 <span className={s.navBurgerMenuText}>Контакти</span>
                 <MdArrowForwardIos className={s.arrow} />

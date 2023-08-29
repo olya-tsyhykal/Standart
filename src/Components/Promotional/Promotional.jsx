@@ -26,7 +26,7 @@ const Promotional = () => {
         }}
         loop={true}
         style={{
-          "z-index": "-1",
+          "z-index": "0",
         }}
       >
         <SwiperSlide>

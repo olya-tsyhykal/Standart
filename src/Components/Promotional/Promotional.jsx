@@ -25,13 +25,9 @@ const Promotional = () => {
           // disableOnInteraction: false,
         }}
         loop={true}
-        // style={{
-        //   "--swiper-pagination-color": "#0b6ea5",
-        //   "--swiper-pagination-bullet-inactive-color": "#999999",
-        //   "--swiper-pagination-bullet-inactive-opacity": "1",
-        //   "--swiper-pagination-bullet-size": "16px",
-        //   "--swiper-pagination-bullet-horizontal-gap": "6px"
-        // }}
+        style={{
+          "z-index": "-1",
+        }}
       >
         <SwiperSlide>
         <div className={s.promotionContainer}>

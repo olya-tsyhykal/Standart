@@ -82,7 +82,7 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
 
   const optionsCategories = categories.map((category, index) => {
     return (
-      <option key={index} value={category} selected="">
+      <option key={index} value={category} >
         {category}
       </option>
     );

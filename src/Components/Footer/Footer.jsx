@@ -128,7 +128,7 @@ const Footer = () => {
               &copy;Всі права захищені Standart+
             </p>
           </div>
-          <Logo className={s.logoStandart} />
+          <Logo className={s.logoStandart} onClick={scrollToTop}/>
         </div>
         <div className={s.arrowTop}>
           <BsArrowUpSquare className={s.arrowToTop} onClick={scrollToTop} />

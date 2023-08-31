@@ -28,7 +28,8 @@ const ProductsPage = () => {
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
   // console.log(page);
-  console.log(data);
+  // console.log(data);
+  // console.log(addData);
 
   useEffect(() => {
     const productsItems = async () => {
@@ -41,6 +42,7 @@ const ProductsPage = () => {
 
   const productsItems = async () => {
     const data = await getProducts(page);
+    // console.log(data);
     setData([...data]);
   };
   const toggleModal = () => {
@@ -75,10 +77,11 @@ const ProductsPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
   const addToProducts = (product) => {
+    setData(prevstate => [...prevstate, addData]);
     addProduct(product);
     
-    setData(prevstate => [...prevstate, addData]);
-    console.log(product);
+    // setData(prevstate => [...prevstate, addData]);
+    // console.log(addData);
    
   };
 

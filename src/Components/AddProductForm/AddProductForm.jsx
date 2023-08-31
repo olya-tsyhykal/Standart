@@ -1,6 +1,7 @@
 import { useState } from "react";
 import s from "./AddProductForm.module.scss";
 import { nanoid } from "nanoid";
+import { useForm } from "react-hook-form";
 
 const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
   const categories = [
@@ -9,6 +10,16 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
     "Все для прибирання",
     "Товари для риболовлі",
   ];
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onBlur",
+  });
+
   const [category, setCategory] = useState("Товари для дому");
   const [name, setName] = useState("");
   const [link, setLink] = useState("");
@@ -40,8 +51,8 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
     }
   };
 
-  const hendleSubmit = (event) => {
-    event.preventDefault();
+  const hendleSubmitForm = (event) => {
+    // event.preventDefault();
     const data = {
       name,
       gallery: link,
@@ -50,19 +61,13 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
       country,
       category,
     };
-    setAddData({
-      id: nanoid(),
-      name,
-      gallery: link,
-      price: Number.parseFloat(price).toFixed(2),
-      description,
-      country,
-      category,
-    });
+    const newData = { id: nanoid(), ...data };
+    setAddData(newData);
     // console.log(data);
     onSubmit(data);
 
     resetForm();
+    reset();
     toggleModal();
   };
 
@@ -84,7 +89,7 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
   });
 
   return (
-    <form onSubmit={hendleSubmit} className={s.form}>
+    <form onSubmit={handleSubmit(hendleSubmitForm)} className={s.form}>
       <div className={s.addForm}>
         <h1 className={s.title}>Заповніть інформацію</h1>
         <div className={s.addComponent}>
@@ -130,16 +135,33 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
         />
 
         <input
+          {...register("price", {
+            required: "*Поле обов'язкове для заповнення",
+            maxLength: {
+              value: 20,
+              message: "Максимальна довжина 20 символів",
+            },
+            pattern: /[0-9\.]/,
+          })}
           value={price}
           onChange={hendleInputChange}
           name="price"
           placeholder="Введіть вартість"
-          required={true}
-          type="text"
+          type="number"
           className={s.addPrice}
         />
+        <div className={s.errors}>
+          {errors?.price && (
+            <p>
+              {errors?.price?.message ||
+                "*Не повинен містити інших символів, крім чисел та крапки або коми"}
+            </p>
+          )}
+        </div>
       </div>
-      <button type="submit" className={s.add}>
+      <button type="submit" className={isValid
+                            ? s.add
+                            : `${s.add} ${s.addDisabled}`} disabled={!isValid}>
         Додати товар
       </button>
     </form>

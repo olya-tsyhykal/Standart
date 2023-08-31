@@ -1,6 +1,5 @@
 import { useState } from "react";
-import TextField from "../TextField/TextField";
-
+import { useForm } from "react-hook-form";
 import s from "./ChangeForm.module.scss";
 
 const ChangeForm = ({ onSubmit, id, toggleModal }) => {
@@ -8,6 +7,15 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
   const [link, setLink] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isValid },
+  } = useForm({
+    mode: "onBlur",
+  });
 
   const hendleInputChange = (event) => {
     const { name, value } = event.currentTarget;
@@ -30,8 +38,8 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
     }
   };
 
-  const hendleSubmit = (event) => {
-    event.preventDefault();
+  const hendleSubmitForm = (event) => {
+    // event.preventDefault();
     const product = {
       name,
       gallery: link,
@@ -40,7 +48,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
     };
     // console.log(id, product);
     onSubmit(id, product);
-
+    reset();
     resetForm();
     toggleModal();
   };
@@ -53,7 +61,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
   };
   return (
     <div>
-      <form onSubmit={hendleSubmit} className={s.ChangeForm}>
+      <form onSubmit={handleSubmit(hendleSubmitForm)} className={s.ChangeForm}>
         <div className={s.form}>
           <h1 className={s.title}>Заповніть інформацію</h1>
           <input
@@ -88,16 +96,33 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
           />
 
           <input
+          {...register("price", {
+            required: "*Поле обов'язкове для заповнення",
+            maxLength: {
+              value: 20,
+              message: "Максимальна довжина 20 символів",
+            },
+            pattern: /[0-9\.]/,
+          })}
             value={price}
             onChange={hendleInputChange}
             name="price"
             placeholder="Введіть вартість"
-            required={true}
-            type="text"
+            type="number"
             className={s.addPrice}
           />
+          <div className={s.errors}>
+          {errors?.price && (
+            <p>
+              {errors?.price?.message ||
+                "*Не повинен містити інших символів, крім чисел та крапки або коми"}
+            </p>
+          )}
         </div>
-        <button type="submit" className={s.add}>
+        </div>
+        <button type="submit" className={isValid
+                            ? s.add
+                            : `${s.add} ${s.addDisabled}`} disabled={!isValid}>
           Змінити товар
         </button>
       </form>

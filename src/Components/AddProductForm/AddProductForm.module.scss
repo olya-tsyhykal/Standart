@@ -130,3 +130,25 @@
     background: #fad308;
   }
 }
+.errors {
+  display: flex;
+  flex-direction: column;
+  padding: 5px ;
+  color: red;
+
+  width: 100%;
+  font-family: Kreon;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  @media screen and (min-width: $desktop) {
+    padding: 0;
+    width: 314px;
+    font-size: 14px;
+  }
+}
+.addDisabled {
+  background-color: transparent;
+  border: 1px solid #ffe663;
+}

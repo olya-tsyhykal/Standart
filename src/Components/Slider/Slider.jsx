@@ -1,11 +1,11 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
+import { Navigation} from "swiper/modules";
 import { AiFillStar } from "react-icons/ai";
 import { BsPerson } from "react-icons/bs";
 import s from "./Slider.module.scss";
 import "swiper/scss";
 import "swiper/scss/navigation";
-import "swiper/scss/pagination";
+// import "swiper/scss/pagination";
 
 const Slider = () => {
   const pageWidth = document.documentElement.scrollWidth;
@@ -14,16 +14,18 @@ const Slider = () => {
     <div className={s.container}>
       <Swiper
         navigation={true}
-        modules={[Navigation, Autoplay]}
-        pagination={{ clickable: true }}
-        className="mySwiper"
+        modules={[Navigation]}
+        // pagination={{ clickable: true }}
+        className={s.mySwiper}
         slidesPerView={pageWidth <= 400 ? 1.2 : 2.5}
-        autoplay={{
-          delay: 2000,
-          pauseOnMouseEnter: true,
-          disableOnInteraction: false,
+        style={{
+          // "--swiper-navigation-color": "#E49A38",
+          "--swiper-navigation-size": "20px",
+          // "--swiper-pagination-bullet-inactive-color": "#999999",
+          // "--swiper-pagination-bullet-inactive-opacity": "1",
+          // "--swiper-pagination-bullet-size": "16px",
+          // "--swiper-pagination-bullet-horizontal-gap": "6px"
         }}
-
       >
         <SwiperSlide>
           <div className={s.cart}>

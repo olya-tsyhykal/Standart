@@ -1,7 +1,15 @@
 @import "../../Shared/styles/index";
 
+.aboutUsSection {
+  @media screen and (min-width: $tablet) {
+    margin-top: 437px;
+  }
+  @media screen and (min-width: $desktop) {
+    margin-top: 740px;
+  }
+}
 .title {
-  padding: 45px 12px 45px 12px;
+  padding: 45px 12px ;
   width: 100%;
 
   color: $color-blue;
@@ -76,7 +84,7 @@
     display: flex;
   }
   @media screen and (min-width: $desktop) {
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 .advantages {
@@ -143,7 +151,7 @@
     width: 630px;
     height: 490px;
 
-    margin-right: -50px;
+    margin-left: 130px;
   }
 }
 .assestDesc {

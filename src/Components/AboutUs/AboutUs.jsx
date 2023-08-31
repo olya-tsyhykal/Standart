@@ -3,7 +3,7 @@ import s from "./AboutUs.module.scss";
 
 const AboutUs = () => {
   return (
-    <section id="about">
+    <section id="about" className={s.aboutUsSection}>
       <h2 className={s.title}>Про нас</h2>
       <div className={s.aboutUs}>
         <div className={s.descriptionShop}>

@@ -27,7 +27,7 @@ const Promotional = () => {
         loop={true}
         style={{
           "z-index": "0",
-          "--swiper-navigation-size": "25px",
+          // "--swiper-navigation-size": "25px",
         }}
       >
         <SwiperSlide>

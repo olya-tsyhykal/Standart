@@ -13,7 +13,7 @@
     height: 497px;
   }
   @media screen and (min-width: $desktop) {
-    height: 800px;
+    height: 990px;
   }
   background-size: cover;
   background-position: center center;
@@ -50,12 +50,14 @@
   font-size: 32px;
   @media screen and (min-width: $tablet) {
     margin-top: 0;
+    padding-top: 80px;
     font-size: 64px;
     margin-bottom: 16px;
     text-align: left;
   }
   @media screen and (min-width: $desktop) {
     font-size: 96px;
+    padding-top: 120px;
   }
   font-style: normal;
   font-weight: 700;

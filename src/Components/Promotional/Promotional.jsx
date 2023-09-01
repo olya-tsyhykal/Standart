@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay, Pagination } from "swiper/modules";
+import {  Autoplay, Pagination } from "swiper/modules";
 import s from "./Promotional.module.scss";
 import vudka from "../../Shared/Images/vudka.jpg";
 import motil from "../../Shared/Images/motil.jpg";
@@ -14,21 +14,21 @@ const Promotional = () => {
     <section id="promotions">
       <h2 className={s.title}>Акційні пропозиції</h2>
       <Swiper
-        navigation={true}
-        modules={[Navigation, Autoplay, Pagination]}
+        
+        modules={[ Autoplay, Pagination]}
         pagination={{ clickable: true }}
         centeredSlides={true}
-        className="mySwiper"
+        className={s.mySwiper}
         autoplay={{
           delay: 2000,
           pauseOnMouseEnter: true,
           // disableOnInteraction: false,
         }}
         loop={true}
-        style={{
-          "z-index": "0",
+        // style={{
+          // "z-index": "0",
           // "--swiper-navigation-size": "25px",
-        }}
+        // }}
       >
         <SwiperSlide>
         <div className={s.promotionContainer}>

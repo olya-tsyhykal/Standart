@@ -21,6 +21,7 @@ const Slider = () => {
         style={{
           // "--swiper-navigation-color": "#E49A38",
           "--swiper-navigation-size": "20px",
+          "z-index": "0",
           // "--swiper-pagination-bullet-inactive-color": "#999999",
           // "--swiper-pagination-bullet-inactive-opacity": "1",
           // "--swiper-pagination-bullet-size": "16px",

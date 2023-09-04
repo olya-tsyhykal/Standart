@@ -5,6 +5,7 @@ import { BsPerson } from "react-icons/bs";
 import s from "./Slider.module.scss";
 import "swiper/scss";
 import "swiper/scss/navigation";
+import { Value } from "sass";
 // import "swiper/scss/pagination";
 
 const Slider = () => {

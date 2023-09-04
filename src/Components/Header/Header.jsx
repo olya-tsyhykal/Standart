@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import { Outlet, NavLink } from "react-router-dom";
 import s from "./Header.module.scss";
@@ -41,10 +41,27 @@ const Header = ({
   } = useForm({
     mode: "onBlur",
   });
+  console.log(window.document.body.style);
 
+  const hideScroll = () => {
+    if (isShow) {
+      window.document.body.style.overflow = "hidden"; 
+    }
+    window.document.body.style.overflow = "";
+  }
+  useEffect(() => {
+    if(cartOpen) {
+      window.document.body.style.overflow = "hidden"; 
+    
+    } else {
+      window.document.body.style.overflow = "";
+    }
+   
+  }, [cartOpen]);
   // console.log("Name:", name);
   // console.log("Number:", number);
   // console.log(watch("name"));
+
 
   const productItem = searchProducts?.map((item) => item.product.name);
 
@@ -182,7 +199,7 @@ const Header = ({
       </div>
 
       {cartOpen && (
-        <Modal onClose={toggleModal}>
+        <Modal onClose={toggleModal} >
           <div className={s.modalContent}>
             <div className={s.titleContainer}>
               <BsCart2 className={s.cartIcon} />

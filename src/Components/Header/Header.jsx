@@ -43,12 +43,6 @@ const Header = ({
   });
   console.log(window.document.body.style);
 
-  const hideScroll = () => {
-    if (isShow) {
-      window.document.body.style.overflow = "hidden"; 
-    }
-    window.document.body.style.overflow = "";
-  }
   useEffect(() => {
     if(cartOpen) {
       window.document.body.style.overflow = "hidden"; 

@@ -40,7 +40,7 @@ const Promotional = () => {
                   Купуй вудку за найвигіднішою ціною тільки в нашому магазині.
                   Твій правильний вибір.
                 </p>
-                <div div className={s.priceContainer}>
+                <div className={s.priceContainer}>
                   <p className={s.oldPrice}>1240 грн</p>
                   <p className={s.newPrice}>800 грн</p>
                 </div>
@@ -60,7 +60,7 @@ const Promotional = () => {
                   взимку, але й для риболовлі і навесні, і восени, і в літній
                   період.
                 </p>
-                <div div className={s.priceContainer}>
+                <div className={s.priceContainer}>
                   <p className={s.oldPrice}>60 грн</p>
                   <p className={s.newPrice}>40 грн</p>
                 </div>
@@ -79,7 +79,7 @@ const Promotional = () => {
                   Опариші – це основа для рибалок на річках і озерах, так само
                   як і велика приманка для мисливців на велику рибу.
                 </p>
-                <div div className={s.priceContainer}>
+                <div  className={s.priceContainer}>
                   <p className={s.oldPrice}>80 грн</p>
                   <p className={s.newPrice}>60 грн</p>
                 </div>

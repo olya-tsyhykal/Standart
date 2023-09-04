@@ -41,7 +41,7 @@ const Header = ({
   } = useForm({
     mode: "onBlur",
   });
-  console.log(window.document.body.style);
+
 
   useEffect(() => {
     if(cartOpen) {

@@ -23,28 +23,28 @@ const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
   const [isShowDel, setIsShowDel] = useState(false);
   const [isShowAdd, setIsShowAdd] = useState(false);
-  const [addData, setAddData] = useState([]);
+  // const [addData, setAddData] = useState([]);
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
   // console.log(page);
-  // console.log(data);
+  console.log("FirstData:", data);
   // console.log(addData);
 
   useEffect(() => {
     const productsItems = async () => {
       const data = await getProducts(page);
-
+      // console.log(data);
       setData((prevstate) => [...prevstate, ...data]);
     };
     productsItems();
   }, [page]);
 
-  const productsItems = async () => {
-    const data = await getProducts(page);
-    // console.log(data);
-    setData([...data]);
-  };
+  // const productsItems = async () => {
+  //   const data = await getProducts(page);
+  //   console.log(data);
+  //   setData([...data]);
+  // };
   const toggleModal = () => {
     setIsShow(!isShow);
     // console.log(isShow);
@@ -77,12 +77,22 @@ const ProductsPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
   const addToProducts = (product) => {
-    setData(prevstate => [...prevstate, addData]);
+    // setData(prevstate => [...prevstate, addData]);
     addProduct(product);
-    
+
+    const productsItems = async () => {
+      const data = await getProducts(page);
+      // console.log("response");
+
+      setData(data);
+      // console.log(data);
+    };
+    setTimeout(() => {
+      productsItems();
+    }, 300);
+    // console.log(data);
     // setData(prevstate => [...prevstate, addData]);
     // console.log(addData);
-   
   };
 
   const productItem = data?.map(
@@ -127,20 +137,25 @@ const ProductsPage = () => {
       <div className={s.bgContainer}>
         <h1 className={s.title}>Додавайте товари та редагуйте асортимент</h1>
         {/* <NavLink to="/add"> */}
-          <button type="button" className={s.addProductButton} onClick={toggleModalAdd}>
-            <AiOutlinePlusCircle className={s.plusButton} />
-            <span>Додати новий товар</span>
-          </button>
-          {isShowAdd && (
+        <button
+          type="button"
+          className={s.addProductButton}
+          onClick={toggleModalAdd}
+        >
+          <AiOutlinePlusCircle className={s.plusButton} />
+          <span>Додати новий товар</span>
+        </button>
+        {isShowAdd && (
           <Modal onClose={toggleModalAdd}>
-           <AddProductForm onSubmit={addToProducts} toggleModal={toggleModalAdd} setAddData={setAddData}/>
+            <AddProductForm
+              onSubmit={addToProducts}
+              toggleModal={toggleModalAdd}
+            />
           </Modal>
         )}
         {/* </NavLink> */}
         {/* <Outlet /> */}
-        <h2 className={s.listProductsTitle} onClick={productsItems}>
-          Список товарів
-        </h2>
+        <h2 className={s.listProductsTitle}>Список товарів</h2>
         <div className={s.headerProducts}>
           <p className={s.headerProductsTitle}>Назва</p>
           <p className={s.headerProductsTitle}>Опис</p>
@@ -158,7 +173,11 @@ const ProductsPage = () => {
           </Modal>
         )}
         {isShowDel && (
-          <ModalDelProduct onClose={toggleModalDel} deleteProduct={deleteProduct} id={id}/>
+          <ModalDelProduct
+            onClose={toggleModalDel}
+            deleteProduct={deleteProduct}
+            id={id}
+          />
         )}
       </div>
       <Footer />

@@ -3,7 +3,7 @@ import s from "./AddProductForm.module.scss";
 import { nanoid } from "nanoid";
 import { useForm } from "react-hook-form";
 
-const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
+const AddProductForm = ({ onSubmit, toggleModal }) => {
   const categories = [
     "Виберіть категорію...",
     "Товари для дому",
@@ -61,9 +61,9 @@ const AddProductForm = ({ onSubmit, toggleModal, setAddData }) => {
       country,
       category,
     };
-    const newData = { id: nanoid(), ...data };
-    setAddData(newData);
-    // console.log(data);
+    // const newData = { id: nanoid(), ...data };
+    // setAddData(newData);
+
     onSubmit(data);
 
     resetForm();

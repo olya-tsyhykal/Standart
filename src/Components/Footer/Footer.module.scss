@@ -153,6 +153,7 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
   transition: color 500ms ease;
   &:hover,
   &:focus {
@@ -182,6 +183,7 @@
 .footerNav_item {
   padding-left: 19px;
   padding-right: 31px;
+  cursor: pointer;
   transition: color 500ms ease;
   &:hover,
   &:focus {

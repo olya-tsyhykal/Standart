@@ -113,7 +113,7 @@ const ChangeForm = ({ onSubmit, id, toggleModal }) => {
           />
           <div className={s.errors}>
           {errors?.price && (
-            <p>
+            <p className={s.error}>
               {errors?.price?.message ||
                 "*Не повинен містити інших символів, крім чисел та крапки або коми"}
             </p>

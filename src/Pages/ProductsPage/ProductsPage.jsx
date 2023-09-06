@@ -12,7 +12,7 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import { BiSolidEdit } from "react-icons/bi";
 import { FaTrash } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { Outlet, NavLink } from "react-router-dom";
+// import { Outlet, NavLink } from "react-router-dom";
 
 import Footer from "../../Components/Footer/Footer";
 import ModalDelProduct from "../../Components/ModalDelProduct/ModalDelProduct";
@@ -23,18 +23,15 @@ const ProductsPage = () => {
   const [isShow, setIsShow] = useState(false);
   const [isShowDel, setIsShowDel] = useState(false);
   const [isShowAdd, setIsShowAdd] = useState(false);
-  // const [addData, setAddData] = useState([]);
+
   const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [searchInfo, setSearchInfo] = useState({});
-  // console.log(page);
-  console.log("FirstData:", data);
-  // console.log(addData);
 
   useEffect(() => {
     const productsItems = async () => {
       const data = await getProducts(page);
-      // console.log(data);
+
       setData((prevstate) => [...prevstate, ...data]);
     };
     productsItems();
@@ -47,15 +44,12 @@ const ProductsPage = () => {
   // };
   const toggleModal = () => {
     setIsShow(!isShow);
-    // console.log(isShow);
   };
   const toggleModalDel = () => {
     setIsShowDel(!isShowDel);
-    // console.log(isShow);
   };
   const toggleModalAdd = () => {
     setIsShowAdd(!isShowAdd);
-    // console.log(isShowAdd);
   };
 
   const findDetails = (event) => {
@@ -67,7 +61,6 @@ const ProductsPage = () => {
     delProduct(id);
     const removeProduct = data.filter((item) => item.id !== id);
     setData(removeProduct);
-    // console.log(id);
   };
   const onSubmit = (id, product) => {
     changeProduct(id, product);
@@ -77,22 +70,16 @@ const ProductsPage = () => {
     setPage((prevPage) => prevPage + 1);
   };
   const addToProducts = (product) => {
-    // setData(prevstate => [...prevstate, addData]);
     addProduct(product);
 
     const productsItems = async () => {
       const data = await getProducts(page);
-      // console.log("response");
 
       setData(data);
-      // console.log(data);
     };
     setTimeout(() => {
       productsItems();
     }, 300);
-    // console.log(data);
-    // setData(prevstate => [...prevstate, addData]);
-    // console.log(addData);
   };
 
   const productItem = data?.map(

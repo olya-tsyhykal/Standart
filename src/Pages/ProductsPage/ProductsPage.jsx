@@ -79,7 +79,7 @@ const ProductsPage = () => {
     };
     setTimeout(() => {
       productsItems();
-    }, 300);
+    }, 400);
   };
 
   const productItem = data?.map(

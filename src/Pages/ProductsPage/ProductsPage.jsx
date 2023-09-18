@@ -79,7 +79,7 @@ const ProductsPage = () => {
     };
     setTimeout(() => {
       productsItems();
-    }, 400);
+    }, 600);
   };
 
   const productItem = data?.map(
@@ -137,6 +137,7 @@ const ProductsPage = () => {
             <AddProductForm
               onSubmit={addToProducts}
               toggleModal={toggleModalAdd}
+             
             />
           </Modal>
         )}
